@@ -15,10 +15,7 @@ export default function App() {
         <header className="flex flex-row justify-center">
           <div className="mr-10 flex-1">
             <nav>
-              <h1
-                className="text-6xl font-bold tracking-tighter text-left"
-                id="header"
-              >
+              <h1 className="text-6xl font-bold tracking-tighter text-left" id="header">
                 Lucas Coco
               </h1>
             </nav>

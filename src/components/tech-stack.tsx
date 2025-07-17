@@ -2,8 +2,8 @@ import { Code, Database, Server, ToolCase } from "lucide-react";
 import StackCard from "./ui/stack-card";
 import { useTranslation } from "react-i18next";
 
-export default function TechStack(){
-  const {t} = useTranslation();
+export default function TechStack() {
+  const { t } = useTranslation();
 
   return (
     <div className='grid grid-cols-2 gap-4 justify-items-center'>
