@@ -1,7 +1,8 @@
-import { House } from "lucide-react";
+import { FolderCode, House } from "lucide-react";
 import { ThemeToggle } from "./theme-toogle";
 import { Button } from "./ui/button";
 import LanguageChanger from "./language-changer";
+import { Separator } from "./ui/separator";
 
 export default function Dock() {
 
@@ -13,6 +14,12 @@ export default function Dock() {
             <House/>
           </Button>
         </li>
+        <li>
+          <Button variant="ghost" size="icon">
+            <FolderCode/>
+          </Button>
+        </li>
+        <Separator orientation="vertical"/>
         <li><ThemeToggle/></li>
         <li><LanguageChanger/></li>
         {/* <li className="flex items-center justify-center"><LanguageChanger/></li> */}

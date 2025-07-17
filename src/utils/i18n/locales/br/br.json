@@ -1,8 +1,0 @@
-{
-    "welcomeMessage_one": "Bem-vindo usuário! {{count}}",
-    "welcomeMessage_other": "Bem-vindo usuários! {{count}}",
-    "description":{
-        "line1": "linha 1",
-        "lin2": "linha 2"
-    }
-}

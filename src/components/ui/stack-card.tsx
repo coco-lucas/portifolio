@@ -10,13 +10,11 @@ export default function StackCard({ icon, stackName, techIcons }: CardProps) {
     <div className="flex items-center justify-center bg-(--muted) min-h-12 min-w-12 w-fit rounded-full">
       {icon}
     </div>
-    <div className="mb-2">
-      <h3 className="font-bold text-lg">{stackName}</h3>
-    </div>
+      <h4>{stackName}</h4>
     <div className="w-full flex justify-center mb-2">
-      <hr className="border-t-2 border-(--border) w-full rounded-full" />
+      <hr className="border-1 border-(--border) w-full rounded-full" />
     </div>
-    <div className="flex flex-row flex-wrap gap-4 justify-baseline items-flex-start w-full text-3xl">
+    <div className="flex flex-row flex-wrap gap-4 justify-baseline items-flex-start w-full text-2xl">
       {techIcons.map((iconClass, idx) => (
         <i key={idx} className={iconClass}></i>
       ))}

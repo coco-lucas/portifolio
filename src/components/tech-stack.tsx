@@ -9,20 +9,20 @@ export default function TechStack(){
     <div className='grid grid-cols-2 gap-4 justify-items-center'>
       <StackCard
         icon={<Code />}
-        stackName={t("stack-1")}
+        stackName={t("stack_front")}
         techIcons={[
           "devicon-javascript-plain colored",
           "devicon-typescript-plain colored",
+          "devicon-html5-plain colored",
+          "devicon-css3-plain colored",
           "devicon-react-original colored",
           "devicon-nextjs-plain dark:colored",
           "devicon-tailwindcss-original colored",
-          "devicon-html5-plain colored",
-          "devicon-css3-plain colored",
         ]}
       />
       <StackCard
         icon={<Server />}
-        stackName={t("stack-2")}
+        stackName={t("stack_back")}
         techIcons={[
           "devicon-nodejs-plain colored",
           "devicon-redis-plain colored",
@@ -32,7 +32,7 @@ export default function TechStack(){
       />
       <StackCard
         icon={<Database />}
-        stackName={t("stack-3")}
+        stackName={t("stack_db")}
         techIcons={[
           "devicon-postgresql-plain colored",
           "devicon-mongodb-plain colored",
@@ -41,11 +41,12 @@ export default function TechStack(){
       />
       <StackCard
         icon={<ToolCase />}
-        stackName={t("stack-4")}
+        stackName={t("stack_tools")}
         techIcons={[
           "devicon-git-plain colored",
           "devicon-github-original light:colored",
-          "devicon-docker-plain colored"
+          "devicon-docker-plain colored",
+          "devicon-rabbitmq-original colored",
         ]}
       />
     </div>
