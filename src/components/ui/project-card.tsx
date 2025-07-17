@@ -1,4 +1,4 @@
-import { BadgeCheckIcon, CircleEllipsis, Github, Loader } from "lucide-react";
+import { BadgeCheckIcon, CircleEllipsis, Github } from "lucide-react";
 import { Badge } from "./badge";
 import {
   Card,
