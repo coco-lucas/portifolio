@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ui/project-card";
 
-export default function(){
+export default function () {
   const { t } = useTranslation();
 
   return (
@@ -12,7 +12,7 @@ export default function(){
         imageURL="https://picsum.photos/800/300"
         alt="Terê Verde Project Image"
         description={t("project_description")}
-        badge={["React", "JavaScript", "HTML", "CSS"]}
+        badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
         githubURL="https://github.com/miguelMFR/tere-verde"
       />
       <ProjectCard
@@ -21,7 +21,7 @@ export default function(){
         imageURL="https://picsum.photos/800/300?random=1"
         alt="Another Project Image"
         description={t("project_description")}
-        badge={["TypeScript", "Node.js", "Express"]}
+        badge={["TypeScript", "Node.js", "SpringBoot", "PostgreSQL", "Express"]}
         githubURL="https://github.com/coco-lucas"
       />
     </div>
