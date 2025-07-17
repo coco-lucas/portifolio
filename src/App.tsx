@@ -23,7 +23,7 @@ export default function App() {
               Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
               | React | Next.js
             </h2>
-            <p className="mt-2 text-xl font-medium">{t("about-me")}</p>
+            <p className="mt-2 text-md font-semibold">{t("about-me")}</p>
           </div>
           <img
             src={LucasCoco}

@@ -1,4 +1,4 @@
-import { BadgeCheckIcon, CircleEllipsis, Github } from "lucide-react";
+import { BadgeCheckIcon, CircleEllipsis, Github, Link, Unlink } from "lucide-react";
 import { Badge } from "./badge";
 import {
   Card,
@@ -13,22 +13,26 @@ import { getLanguageColor } from "../../lib/utils";
 
 export interface ProjectProps {
   title: string;
+  date?: string;
   isFinished: boolean;
   imageURL: string;
   alt: string;
   description: string;
   badge: string[];
   badgeClassname?: string;
+  deployURL?: string;
   githubURL?: string;
 }
 
 export default function ProjectCard({
   title,
+  date,
   isFinished,
   imageURL,
   alt,
   description,
   badge,
+  deployURL,
   githubURL,
 }: ProjectProps) {
   const { t } = useTranslation();
@@ -42,8 +46,11 @@ export default function ProjectCard({
     <Card>
       <CardHeader>
         <div className="flex flex-row justify-between items-center">
-          <CardTitle className="text-center text-2xl font-extrabold">
-            {title}
+          <CardTitle className="flex flex-col">
+            <h2 className="text-2xl font-extrabold">{title}</h2>
+            {date && (
+              <p className="text-sm font-normal text-(--muted-foreground)">{date}</p>
+            )}
           </CardTitle>
           {isFinished ? (
             <Badge className="bg-(--chart-2) pointer-events-none">
@@ -59,7 +66,7 @@ export default function ProjectCard({
         </div>
 
         <img src={imageURL} alt={alt} className="rounded-xl" />
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="text-md">{description}</CardDescription>
       </CardHeader>
       <CardContent>
         <h4>{t("project_stack")}:</h4>
@@ -75,11 +82,24 @@ export default function ProjectCard({
               </Badge>
             ))}
           </div>
-          <a href={githubURL} target="_blank">
-            <Button variant="outline" className="cursor-pointer">
-              <Github />
-            </Button>
-          </a>
+          <div className="flex flex-row gap-2">
+            <a href={deployURL} target="_blank">
+              {deployURL ? (
+                <Button variant="outline" className="cursor-pointer">
+                  <Link />
+                </Button>
+              ) : (
+                <Button variant="link" className="cursor-not-allowed">
+                  <Unlink />
+                </Button>
+              )}
+            </a>
+            <a href={githubURL} target="_blank">
+              <Button variant="outline" className="cursor-pointer">
+                <Github />
+              </Button>
+            </a>
+          </div>
         </div>
       </CardContent>
     </Card>
