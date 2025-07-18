@@ -1,7 +1,8 @@
-import { BadgeCheckIcon, CircleEllipsis, Github, Link, Unlink } from "lucide-react";
+import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link, Unlink } from "lucide-react";
 import { Badge } from "./badge";
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -45,12 +46,16 @@ export default function ProjectCard({
   return (
     <Card>
       <CardHeader>
-        <div className="flex flex-row justify-between items-center">
+        {date &&
+          <div className="flex items-center justify-start">
+            <p className="flex gap-1 text-xs text-(--muted-foreground)" tabIndex={1}>
+              <Calendar size={14} />
+              {date}
+            </p>
+          </div>}
+        <div className="flex flex-row justify-between items-center" tabIndex={2}  >
           <CardTitle className="flex flex-col">
             <h2 className="text-2xl font-extrabold">{title}</h2>
-            {date && (
-              <p className="text-sm font-normal text-(--muted-foreground)">{date}</p>
-            )}
           </CardTitle>
           {isFinished ? (
             <Badge className="bg-(--chart-2) pointer-events-none">
@@ -64,14 +69,13 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-
-        <img src={imageURL} alt={alt} className="rounded-xl" />
-        <CardDescription className="text-md">{description}</CardDescription>
+        <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
+        <CardDescription className="text-md" tabIndex={4}>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis voluptas vero fugit reprehenderit, possimus error architecto ex excepturi laborum perferendis magni repudiandae laudantium maxime. Repellendus quos fuga distinctio corporis?</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent tabIndex={5}>
         <h4>{t("project_stack")}:</h4>
         <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2" tabIndex={6}>
             {badge.map((element) => (
               <Badge
                 variant="secondary"
@@ -82,7 +86,7 @@ export default function ProjectCard({
               </Badge>
             ))}
           </div>
-          <div className="flex flex-row gap-2">
+          <CardAction className="flex flex-row gap-2">
             <a href={deployURL} target="_blank">
               {deployURL ? (
                 <Button variant="outline" className="cursor-pointer">
@@ -99,9 +103,9 @@ export default function ProjectCard({
                 <Github />
               </Button>
             </a>
-          </div>
+          </CardAction>
         </div>
       </CardContent>
-    </Card>
+    </Card >
   );
 }

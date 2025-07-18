@@ -40,7 +40,13 @@ export default function App() {
             <h3 id="projects">{t("project")}:</h3>
             <Projects />
           </nav>
+          <nav>
+            <h3 id="education">Education</h3>
+          </nav>
         </main>
+        <footer>
+          <h3 id="contact">Contact</h3>
+        </footer>
         <Dock />
       </div>
     </ThemeProvider>
