@@ -48,7 +48,7 @@ export default function ProjectCard({
       <CardHeader>
         {date &&
           <div className="flex items-center justify-start">
-            <p className="flex gap-1 text-xs text-(--muted-foreground)" tabIndex={1}>
+            <p className="flex gap-0.5 text-xs font-semibold text-(--ring) items-center" tabIndex={1}>
               <Calendar size={14} />
               {date}
             </p>

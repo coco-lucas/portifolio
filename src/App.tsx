@@ -14,7 +14,7 @@ export default function App() {
       <div className="max-w-3xl mx-auto mt-30">
         <header className="flex flex-row justify-center">
           <div className="mr-10 flex-1">
-            <nav>
+            <nav className="my-0">
               <h1 className="text-6xl font-bold tracking-tighter text-left" id="header">
                 Lucas Coco
               </h1>
@@ -32,11 +32,11 @@ export default function App() {
           />
         </header>
         <main>
-          <nav className="my-15">
+          <nav>
             <h3 id="my-stack">{t("stack")}:</h3>
             <TechStack />
           </nav>
-          <nav className="my-15">
+          <nav>
             <h3 id="projects">{t("project")}:</h3>
             <Projects />
           </nav>

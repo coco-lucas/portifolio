@@ -133,4 +133,7 @@
   h4{
     @apply font-bold text-lg tracking-tight;
   }
+  nav{
+    @apply my-15
+  }
 }

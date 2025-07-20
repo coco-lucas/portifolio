@@ -35,7 +35,7 @@ export default function () {
               <GitGraph size={18} />
               <p className="text-md font-bold">152</p>
               Commits
-              <div className="text-[10px] font-bold text-ring">/2025</div>
+              <div className="text-[10px] font-bold text-ring mt-1.5">/2025</div>
             </div>
           </div>
         </CardHeader>
