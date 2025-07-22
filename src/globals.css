@@ -134,6 +134,9 @@
     @apply font-bold text-lg tracking-tight;
   }
   nav{
-    @apply my-15
+    @apply mt-15;
+  }
+  img{
+    @apply text-red-400;
   }
 }

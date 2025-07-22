@@ -1,44 +1,60 @@
 import { Link } from "lucide-react";
 import { Button } from "../button";
 import { Card, CardContent, CardHeader, CardTitle } from "../card";
+import { useTranslation } from "react-i18next";
 
-type typeProps = "University" | "Course";
+type typeProps = "university" | "certification";
 
 interface CardProps {
   title: string;
-  university: string;
+  corporation: string;
+  corporationURL?: string;
   type: typeProps;
-  graduationYear: number;
+  hours?: string;
+  year: number;
   credentialURL?: string;
 }
 
-export default function EducationCard({ title, university, type, graduationYear, credentialURL }: CardProps) {
+export default function EducationCard({ title, corporation, corporationURL, type, hours, year, credentialURL }: CardProps) {
+  const { t } = useTranslation();
+
   return (
-    <Card>
+    <Card className="min-h-[172px] min-w-[370px] max-h-[172px] max-w-[335px] border-none border-l-2">
       <CardHeader>
         <CardTitle className="font-bold">{title}</CardTitle>
-        <p className="font-medium text-muted-foreground">{university}</p>
+        <a href={corporationURL} target="_blank">
+          <p className="font-medium text-muted-foreground text-sm">{corporation}</p>
+        </a>
       </CardHeader>
-      <CardContent>
-        <div className="flex flex-row-reverse justify-between items-center">
-          <p className="text-sm text-muted-foreground">
-            {type === "University" ? "Graduation:" : ""} {graduationYear}
+
+      <div className="flex flex-1 flex-col justify-end"></div>
+      <CardContent className="flex flex-row-reverse justify-between items-end h-0">
+        <div className="flex flex-col-reverse items-end">
+          <p className="text-sm font-semibold text-muted-foreground">
+            {type === "university" ? `${t("education_graduation")}:` : ""} {year}
           </p>
-          {credentialURL && (
-            <a href={credentialURL} target="_blank">
-              <Button
-                variant="link"
-                className="text-s cursor-pointer p-0 h-auto group flex items-center gap-1"
-              >
-                View Credential
-                <span className="transition-opacity opacity-0 group-hover:opacity-100">
-                  <Link className="size-3" />
-                </span>
-              </Button>
-            </a>
+          {type === "certification" && (
+            <div style={{ position: "relative", width: "100%" }}>
+              <p className="absolute top-[-12px] right-0 text-[11px] font-semibold text-ring">
+                {hours}
+              </p>
+            </div>
           )}
         </div>
+        {credentialURL && (
+          <a href={credentialURL} target="_blank">
+            <Button
+              variant="link"
+              className="text-s font-bold cursor-pointer p-0 h-auto group flex items-center gap-1"
+            >
+              {t("education_credential")}
+              <span className="transition-opacity opacity-0 group-hover:opacity-100">
+                <Link className="size-4" />
+              </span>
+            </Button>
+          </a>
+        )}
       </CardContent>
-    </Card>
+    </Card >
   )
 }
