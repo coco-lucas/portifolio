@@ -24,7 +24,7 @@ export default function () {
                 @coco-lucas
               </a>
             </div>
-          </CardTitle>
+          </CardTitle>{/* TODO:Maybe change this to a badge */}
           <div className="flex flex-row self-center gap-2 text-sm">
             <div className="flex items-center gap-1 justify-center bg-(--muted) min-h-8 w-fit rounded-2xl px-2">
               <Code size={18} />

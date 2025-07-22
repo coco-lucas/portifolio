@@ -21,7 +21,7 @@ export default function EducationCard({ title, university, type, graduationYear,
       </CardHeader>
       <CardContent>
         <div className="flex flex-row-reverse justify-between items-center">
-          <p className="italic text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             {type === "University" ? "Graduation:" : ""} {graduationYear}
           </p>
           {credentialURL && (
