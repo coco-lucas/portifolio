@@ -1,5 +1,5 @@
 import { Code, Database, Server, ToolCase } from "lucide-react";
-import StackCard from "./ui/stack-card";
+import StackCard from "./ui/cards/stack-card";
 import { useTranslation } from "react-i18next";
 
 export default function TechStack() {

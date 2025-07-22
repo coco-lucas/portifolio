@@ -1,5 +1,5 @@
 import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link, Unlink } from "lucide-react";
-import { Badge } from "./badge";
+import { Badge } from "../badge";
 import {
   Card,
   CardAction,
@@ -7,10 +7,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./card";
+} from "../card";
 import { useTranslation } from "react-i18next";
-import { Button } from "./button";
-import { getLanguageColor } from "../../lib/utils";
+import { Button } from "../button";
+import { getLanguageColor } from "../../../lib/utils";
 
 export interface ProjectProps {
   title: string;
