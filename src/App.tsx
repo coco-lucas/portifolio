@@ -5,13 +5,16 @@ import LucasCoco from "./assets/lucas-coco-ai.png";
 
 import TechStack from "./components/tech-stack";
 import Projects from "./components/projects";
-import { Separator } from "./components/ui/separator";
-import { Award, GraduationCap } from "lucide-react";
-import EducationCard from "./components/ui/cards/education-card";
 import Education from "./components/education";
+import ContactForm from "./components/contact-form";
 
 export default function App() {
   const { t } = useTranslation();
+
+
+
+
+
 
   return (
     <ThemeProvider>
@@ -43,6 +46,7 @@ export default function App() {
           <nav>
             <h3 id="projects">{t("project")}:</h3>
             <Projects />
+            {/*TODO:Make the projects be inside a carousel*/}
           </nav>
           <nav>
             <h3 id="education">{t("education")}:</h3>
@@ -52,6 +56,11 @@ export default function App() {
           <nav>
             <h3 id="contact">Contact</h3>
           </nav>
+          <div className="flex flex-col items-center justify-center mt-10 mb-10">
+            <h2 className="text-2xl font-medium">Have a project idea or are interested in my services?</h2>
+            <p className="mt-1.5 font-bold text-xl">Contact me!</p>
+            <ContactForm />
+          </div>
         </main>
         <footer className="text-sm border-t border-muted py-4 justify-between">
           <div className="flex flex-row justify-between items-center">
