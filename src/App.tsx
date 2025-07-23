@@ -53,14 +53,11 @@ export default function App() {
           </nav>
           <Education />
 
-          <nav>
-            <h3 id="contact">Contact</h3>
-          </nav>
-          <div className="flex flex-col items-center justify-center mt-10 mb-10">
+          <nav className="flex flex-col items-center justify-center mt-30 mb-10">
             <h2 className="text-2xl font-medium">Have a project idea or are interested in my services?</h2>
-            <p className="mt-1.5 font-bold text-xl">Contact me!</p>
+            <p className="mt-1.5 font-bold text-3xl">Contact me!</p>
             <ContactForm />
-          </div>
+          </nav>
         </main>
         <footer className="text-sm border-t border-muted py-4 justify-between">
           <div className="flex flex-row justify-between items-center">

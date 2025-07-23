@@ -79,7 +79,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="mt-4  max-w-150 min-w-130">
+    <Card className="mt-4 border-none max-w-150 min-w-130">
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -137,7 +137,7 @@ export default function ContactForm() {
                 )}
               />
             </div>
-            <Button type="submit" variant="outline" className="w-full cursor-pointer" >
+            <Button type="submit" variant="default" className="w-full cursor-pointer" >
               Send Message
             </Button>
           </form>
