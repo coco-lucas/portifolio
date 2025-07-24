@@ -79,7 +79,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="mt-4 border-none max-w-150 min-w-130">
+    <Card className="mt-4 sm:max-w-150 sm:min-w-130">
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

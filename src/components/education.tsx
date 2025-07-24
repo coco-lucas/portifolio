@@ -7,7 +7,7 @@ export default function Education() {
   const { t } = useTranslation();
   return (
     <div className="items-center">
-      <div className="flex flex-row gap-1 items-center">
+      <div className="flex flex-row gap-1 justify-center sm:justify-start items-center">
         <div className="bg-muted flex items-center justify-center rounded-full p-1">
           <GraduationCap size={28} />
         </div>
@@ -15,7 +15,7 @@ export default function Education() {
           {t("education_university")}
         </h4>
       </div>
-      <div className="my-4 grid grid-cols-2 gap-4 justify-items-center">
+      <div className="my-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
         <EducationCard
           title={t("education_university-1-title")}
           corporation="UNIFESO - Centro Universitário Serra dos Órgãos"
@@ -25,14 +25,14 @@ export default function Education() {
         />
       </div>
 
-      <div className="flex flex-row gap-1 items-center justify-end w-full">
-        <Separator orientation="horizontal" className="flex-1/2" />
+      <div className="flex flex-row sm:gap-1 items-center justify-center sm:justify-end w-full">
+        <Separator orientation="horizontal" className="flex-1/2 hidden sm:block" />
         <div className="bg-muted flex items-center justify-center rounded-full p-1">
           <Award size={28} />
         </div>
         <h4 className="text-lg font-semibold">{t("education_certification")}</h4>
       </div>
-      <div className="my-4 grid grid-cols-2 gap-4 justify-items-center">
+      <div className="my-4 grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
         <EducationCard
           title={t("education_certification-1-title")}
           corporation="SERRATEC - Parque Tecnológico da Região Serrana"

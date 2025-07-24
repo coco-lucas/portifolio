@@ -86,7 +86,7 @@ export default function ProjectCard({
               </Badge>
             ))}
           </div>
-          <CardAction className="flex flex-row gap-2">
+          <CardAction className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
               {deployURL ? (
                 <Button variant="outline" className="cursor-pointer">

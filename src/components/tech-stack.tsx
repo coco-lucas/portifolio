@@ -6,7 +6,7 @@ export default function TechStack() {
   const { t } = useTranslation();
 
   return (
-    <div className='grid grid-cols-2 gap-4 justify-items-center'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center'>
       <StackCard
         icon={<Code />}
         stackName={t("stack_front")}

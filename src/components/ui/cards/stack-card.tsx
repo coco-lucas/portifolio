@@ -8,7 +8,7 @@ interface CardProps {
 
 export default function StackCard({ icon, stackName, techIcons }: CardProps) {
   return (
-    <Card className="min-w-[375px] min-h-[190px] max-w-[350px]">
+    <Card className="sm:min-w-[375px] min-h-[190px] max-w-[350px]">
       <CardHeader>
         <div className="flex items-center justify-center bg-(--muted) min-h-12 min-w-12 w-fit rounded-full">
           {icon}
@@ -17,7 +17,7 @@ export default function StackCard({ icon, stackName, techIcons }: CardProps) {
         <hr className="border-1 border-(--border) w-full rounded-full" />
       </CardHeader>
       <CardContent className="w-full flex justify-baseline mb-2">
-        <div className="flex flex-row justify-baseline  gap-4 text-3xl">
+        <div className="flex flex-row justify-baseline gap-2 sm:gap-4 text-2xl sm:text-3xl">
           {techIcons.map((iconClass, idx) => (
             <i key={idx} className={iconClass}></i>
           ))}
