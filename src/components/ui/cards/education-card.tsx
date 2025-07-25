@@ -19,7 +19,7 @@ export default function EducationCard({ title, corporation, corporationURL, type
   const { t } = useTranslation();
 
   return (
-    <Card className="min-h-[172px] min-w-[370px] max-h-[172px] max-w-[335px] border-none border-l-2">
+    <Card className="min-h-[172px] min-w-[370px] max-h-[172px] max-w-[335px] ">
       <CardHeader>
         <CardTitle className="font-bold">{title}</CardTitle>
         <a href={corporationURL} target="_blank">
@@ -45,7 +45,7 @@ export default function EducationCard({ title, corporation, corporationURL, type
           <a href={credentialURL} target="_blank">
             <Button
               variant="link"
-              className="text-s font-bold cursor-pointer p-0 h-auto group flex items-center gap-1"
+              className="text-s text-chart-2 font-bold cursor-pointer p-0 h-auto group flex items-center gap-1"
             >
               {t("education_credential")}
               <span className="transition-opacity opacity-0 group-hover:opacity-100">
