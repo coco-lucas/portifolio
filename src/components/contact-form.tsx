@@ -8,6 +8,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 
 
@@ -40,23 +42,9 @@ export default function ContactForm() {
   const onSubmit = (data: z.infer<ReturnType<typeof ContactSchema>>) => {
     console.log("Form submitted", data);
 
-
-
-    // const serviceId = String(import.meta.env.VITE_EMAILJS_SERVICE_ID);
-    // const templateId = String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
-    // const publicKey = String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-
-    const serviceId = "service_xnjnoif"
-    const templateId = "template_epodv7j"
-    const publicKey = "tZK_400PusKWZziD7"
-
-    if (!serviceId || !templateId || !publicKey) {
-      console.error("Missing EmailJS environment variables.");
-      console.error("Service ID:", serviceId);
-      console.error("Template ID:", templateId);
-      console.error("Public Key:", publicKey);
-      return;
-    }
+    const serviceId = String(import.meta.env.VITE_EMAILJS_SERVICE_ID);
+    const templateId = String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
+    const publicKey = String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
     const templateParams = {
       subject: data.subject,
@@ -69,15 +57,17 @@ export default function ContactForm() {
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((res) => {
         console.log("Email sent successfully", res);
+        form.reset();
+        toast.success("Email sent successfully!", { description: "Thank you for reaching out! I will get back to you as soon as possible." });
       })
       .catch((err) => {
         console.error("Error sending email", err);
-        console.error("Service ID:", serviceId);
-        console.error("Template ID:", templateId);
-        console.error("Public Key:", publicKey);
-      });
+        toast.error("There was an error sending your message. Please try again later.", {
+          descriptionClassName: "!text-muted-foreground",
+          description: "If the problem persists, please contact me on my socials.",
+        });
+      })
   }
-
   return (
     <Card className="mt-4 sm:max-w-150 sm:min-w-130">
       <CardContent>
@@ -117,7 +107,16 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Subject</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Subject" {...field} />
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select a subject" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="project">Project Collaboration</SelectItem>
+                          <SelectItem value="job">Job Role</SelectItem>
+                          <SelectItem value="inquiry">General Inquiry</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,6 +139,7 @@ export default function ContactForm() {
             <Button type="submit" variant="default" className="w-full cursor-pointer" >
               Send Message
             </Button>
+            {/*TODO: Add Captcha*/}
           </form>
         </Form>
       </CardContent>
