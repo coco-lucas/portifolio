@@ -16,7 +16,7 @@ export default function App() {
 
   const socialItems = [
     { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
-    { icon: <Instagram />, name: "Instagram", link: "https://www.instagram.com/lucas_coco_/" },
+    { icon: <Instagram className="size-4 sm:size-5" />, name: "Instagram", link: "https://www.instagram.com/lucas_coco_/" },
     { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/lucauxs" },
     { icon: <i className="devicon-behance-plain" />, name: "Behance", link: "https://behance.net/lucas-coco" }
   ];
@@ -74,7 +74,7 @@ export default function App() {
         </main>
         <footer className="text-sm text-muted-foreground border-t border-muted py-4 mb-15 sm:mb-5">
           <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between items-center">
-            <p className="text-foreground">© 2025 - Lucas Coco</p>
+            <p className="text-foreground">©Lucas Coco - 2025</p>
             <div className="flex flex-row justify-evenly gap-4 sm:px-5">
               <a href="https://www.linkedin.com/in/coco-lucas/">LinkedIn</a>
               <a href="https://www.instagram.com/lucas_coco_/">Instagram</a>

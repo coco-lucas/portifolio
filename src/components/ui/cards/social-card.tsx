@@ -18,8 +18,8 @@ export default function SocialCard({ items }: SocialCardProps) {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="secondary" className="items-center w-full text-base sm:text-lg h-10 sm:h-12 mb-2 justify-center rounded-xl cursor-pointer">
-            <Mail className="size-5" /> Send email
+          <Button variant="secondary" className="items-center w-full text-lg sm:text-xl h-10 sm:h-12 mb-1 sm:mb-2 justify-center rounded-xl cursor-pointer">
+            <Mail className="size-6" /> Email me
           </Button>
         </DialogTrigger>
         <DialogContent>
@@ -30,11 +30,19 @@ export default function SocialCard({ items }: SocialCardProps) {
           <ContactForm />
         </DialogContent>
       </Dialog>
-      <div className="grid grid-cols-2 gap-4">
+      <motion.h3
+        className="text-lg sm:text-xl font-normal -mb-2 mt-2 text-center"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        Or connect with me on
+      </motion.h3>
+      <div className="grid grid-cols-2 gap-2">
         <div className="gap-2">
           {col1.map((item) => (
             <a href={item.link} target="_blank" key={item.name}>
-              <Button className="items-center text-base sm:text-lg w-full sm:min-w-45 h-10 sm:h-12 mb-2 rounded-xl cursor-pointer" variant="secondary">
+              <Button className="items-center text-sm sm:text-base w-full sm:min-w-45 h-8 sm:h-10 mt-2 rounded-sm cursor-pointer" variant="secondary">
                 {item.icon}
                 {item.name}
               </Button>
@@ -44,7 +52,7 @@ export default function SocialCard({ items }: SocialCardProps) {
         <div className="gap-2">
           {col2.map((item) => (
             <a href={item.link} target="_blank" key={item.name}>
-              <Button className="items-center text-base sm:text-lg w-full sm:min-w-45 h-10 sm:h-12 mb-2 rounded-xl cursor-pointer" variant="secondary">
+              <Button className="items-center text-sm sm:text-base w-full sm:min-w-45 h-8 sm:h-10 mt-2 rounded-sm cursor-pointer" variant="secondary">
                 {item.icon}
                 {item.name}
               </Button>
