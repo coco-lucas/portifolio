@@ -11,17 +11,29 @@ import { toast } from "sonner";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 
+//TODO: Rewatch the video about forms && make the code not verify every input change
 
 const ContactSchema = () => {
   return z.object({
-    name: z.string().min(2, {
+    name: z.string().nonempty({
+      message: "Name is required.",
+    }).min(2, {
       message: "The name must be at least 2 characters.",
     }),
-    email: z.email({
+    email: z.string().nonempty({
+      message: "Email is required.",
+    }).email({
       message: "Please enter a valid email address.",
     }),
-    subject: z.string().nonempty,
-    message: z.string().min(10, {
+    subject: z.string().nonempty({
+      message: "Please select a subject.",
+    }),
+    otherSubject: z.string().min(3, {
+      message: "The other subject must be at least 3 characters.",
+    }).optional(),
+    message: z.string().nonempty({
+      message: "Message is required.",
+    }).min(10, {
       message: "The message must have at least 10 characters.",
     }),
   });
@@ -29,9 +41,7 @@ const ContactSchema = () => {
 
 export default function ContactForm() {
   const form = useForm({
-    resolver: zodResolver(ContactSchema().extend({
-      otherSubject: z.string().optional(),
-    })),
+    resolver: zodResolver(ContactSchema()),
     defaultValues: {
       name: "",
       email: "",
@@ -47,6 +57,8 @@ export default function ContactForm() {
     const serviceId = String(import.meta.env.VITE_EMAILJS_SERVICE_ID);
     const templateId = String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
     const publicKey = String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+    { data.otherSubject && (data.subject = data.otherSubject) };
 
     const templateParams = {
       subject: data.subject,
@@ -104,7 +116,7 @@ export default function ContactForm() {
             control={form.control}
             name="subject"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className={form.watch("subject") === "other" ? "text-ring" : "text-foreground"}>
                 <FormLabel>Subject</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} value={field.value}>
