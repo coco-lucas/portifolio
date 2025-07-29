@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
 
-import { Card, CardContent } from "./ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -21,7 +20,7 @@ const ContactSchema = () => {
     email: z.email({
       message: "Please enter a valid email address.",
     }),
-    subject: z.string(),
+    subject: z.string().nonempty,
     message: z.string().min(10, {
       message: "The message must have at least 10 characters.",
     }),
@@ -30,11 +29,14 @@ const ContactSchema = () => {
 
 export default function ContactForm() {
   const form = useForm({
-    resolver: zodResolver(ContactSchema()),
+    resolver: zodResolver(ContactSchema().extend({
+      otherSubject: z.string().optional(),
+    })),
     defaultValues: {
       name: "",
       email: "",
       subject: "",
+      otherSubject: "",
       message: "",
     },
   })
@@ -69,80 +71,92 @@ export default function ContactForm() {
       })
   }
   return (
-    <Card className="mt-4 sm:max-w-150 sm:min-w-130">
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Email" type="email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange} value={field.value}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select a subject" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="project">Project Collaboration</SelectItem>
-                          <SelectItem value="job">Job Role</SelectItem>
-                          <SelectItem value="inquiry">General Inquiry</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Your Message" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <Button type="submit" variant="default" className="w-full cursor-pointer" >
-              Send Message
-            </Button>
-            {/*TODO: Add Captcha*/}
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="space-y-4">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Full Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your Email" type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="subject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Subject</FormLabel>
+                <FormControl>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a subject" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="project">Project Collaboration</SelectItem>
+                      <SelectItem value="job">Job Role</SelectItem>
+                      <SelectItem value="inquiry">General Inquiry</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {form.watch("subject") === "other" && (
+            <FormField
+              control={form.control}
+              name="otherSubject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Other Subject</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Specify other subject" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Your Message" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <Button type="submit" variant="default" className="w-full cursor-pointer" >
+          Send Message
+        </Button>
+        {/*TODO: Add Captcha*/}
+      </form>
+    </Form>
   )
 }

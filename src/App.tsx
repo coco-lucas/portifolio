@@ -6,11 +6,20 @@ import LucasCoco from "./assets/lucas-coco-ai.png";
 import TechStack from "./components/tech-stack";
 import Projects from "./components/projects";
 import Education from "./components/education";
-import ContactForm from "./components/contact-form";
 import { Toaster } from "./components/ui/sonner";
+import { Card, CardContent } from "./components/ui/card";
+import { Instagram } from "lucide-react";
+import SocialCard from "./components/ui/cards/social-card";
 
 export default function App() {
   const { t } = useTranslation();
+
+  const socialItems = [
+    { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
+    { icon: <Instagram />, name: "Instagram", link: "https://www.instagram.com/lucas_coco_/" },
+    { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/lucauxs" },
+    { icon: <i className="devicon-behance-plain" />, name: "Behance", link: "https://behance.net/lucas-coco" }
+  ];
 
   return (
     <ThemeProvider>
@@ -35,7 +44,7 @@ export default function App() {
                 />
               </div>
             </nav>
-            <p className="mt-4 text-base  max-w-prose text-muted-foreground font-semibold sm:text-lg text-center sm:text-start">{t("about-me")}</p>
+            <p className="mt-4 text-base max-w-prose text-muted-foreground font-semibold text-start">{t("about-me")}</p>
           </div>
 
         </header>
@@ -47,27 +56,35 @@ export default function App() {
           <nav>
             <h3 id="projects">{t("project")}:</h3>
             <Projects />
-            {/*TODO:Make the projects be inside a carousel*/}
+            {/*TODO:Make the projects be inside a carousel in mobile view && make a Load More button in pc view*/}
           </nav>
 
           <Education />
 
+          {/*TODO: Translate all of the texts belllow this:*/}
           <nav className="flex flex-col items-center justify-center sm:mt-30 mb-10">
-            <h2 className="text-xl sm:text-2xl text-center sm:text-start font-medium">Have a project idea or are interested in my services?</h2>
-            <p className="mt-1.5 font-bold text-2xl sm:text-3xl">Contact me!</p>
-            <ContactForm />
-            {/*TODO: Make this a modal to send the email + others socials*/}
+            <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">Have a project idea or are interested in my services?</h2>
+            <p className="mt-1 font-bold text-2xl sm:text-3xl">Contact me!</p>
+            <Card className="sm:min-w-20 sm:w-150 mt-4">
+              <CardContent className="flex flex-col items-center gap-2">
+                <SocialCard items={socialItems} />
+              </CardContent>
+            </Card>
           </nav>
         </main>
-        <footer className="text-sm border-t border-muted py-4 justify-between">
-          <div className="flex flex-row justify-between items-center">
-            <p>© 2025 Lucas Coco - All Rights Reserved</p>
-            <p>linkedin</p>
+        <footer className="text-sm text-muted-foreground border-t border-muted py-4 mb-15 sm:mb-5">
+          <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between items-center">
+            <p className="text-foreground">© 2025 - Lucas Coco</p>
+            <div className="flex flex-row justify-evenly gap-4 sm:px-5">
+              <a href="https://www.linkedin.com/in/coco-lucas/">LinkedIn</a>
+              <a href="https://www.instagram.com/lucas_coco_/">Instagram</a>
+              <a href="https://www.x.com/lucauxs">Twitter</a>
+            </div>
           </div>
         </footer>
         <Dock />
       </div>
       <Toaster position="top-center" />
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }

@@ -6,6 +6,8 @@ import { Badge } from "./ui/badge";
 
 export default function () {
   const { t } = useTranslation();
+  const repositories = 25;
+  const commits = 470;
 
   return (
     <div className="flex flex-col gap-4 w-full items-center sm:items-start justify-center sm:justify-start">
@@ -29,7 +31,7 @@ export default function () {
           <div className="flex flex-row items-center self-center gap-2 text-sm">
             <Badge variant={"secondary"} className="cursor-default text-sm min-h-7 min-w-38 max-w-38">
               <div className="flex flex-row items-center gap-1">
-                <Code className="size-4" />25 Repos
+                <Code className="size-4" />{repositories} Repos
               </div>
             </Badge>
             <Badge variant={"secondary"} className="cursor-default text-sm min-h-7 min-w-38 max-w-38">
@@ -37,7 +39,7 @@ export default function () {
                 <GitGraph className="size-4" />
               </div>
               <div className="flex flex-row items-center gap-0.5">
-                152 Commits <span className="text-[10px] font-bold text-muted-foreground/75 mt-1.5 hidden sm:block">2025</span>
+                {commits} Commits <span className="text-[10px] font-bold text-muted-foreground/75 mt-1.5 hidden sm:block">2025</span>
               </div>
             </Badge>
           </div>
