@@ -2,8 +2,10 @@ import type { JSX } from "react";
 import { Button } from "../button";
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogTitle, DialogTrigger } from "../dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "../dialog";
 import ContactForm from "../../contact-form";
+import { useTranslation } from "react-i18next";
+import Contact from "../contact";
 
 
 interface SocialCardProps {
@@ -11,6 +13,7 @@ interface SocialCardProps {
 }
 
 export default function SocialCard({ items }: SocialCardProps) {
+  const { t } = useTranslation();
   const col1 = items.slice(0, 2);
   const col2 = items.slice(2, 4);
 
@@ -19,24 +22,24 @@ export default function SocialCard({ items }: SocialCardProps) {
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="secondary" className="items-center w-full text-lg sm:text-xl h-10 sm:h-12 mb-1 sm:mb-2 justify-center rounded-xl cursor-pointer">
-            <Mail className="size-6" /> Email me
+            <Mail className="size-6" /> {t("contact_mail-button")}
           </Button>
         </DialogTrigger>
         <DialogContent>
-          <DialogTitle>Send me a message!</DialogTitle>
+          <DialogTitle>{t("contact_form-tittle")}!</DialogTitle>
           <DialogDescription>
-            Fill out the form below to get in touch with me.
+            {t("contact.desc")}.
           </DialogDescription>
-          <ContactForm />
+          <Contact />
         </DialogContent>
       </Dialog>
       <motion.h3
-        className="text-lg sm:text-xl font-normal -mb-2 mt-2 text-center"
+        className="text-lg sm:text-xl -mb-2 mt-2 text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        Or connect with me on
+        <p className="text-base sm:text-lg font-normal">{t("contact_card-socials")}</p>
       </motion.h3>
       <div className="grid grid-cols-2 gap-2">
         <div className="gap-2">

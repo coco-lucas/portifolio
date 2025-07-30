@@ -63,8 +63,8 @@ export default function App() {
 
           {/*TODO: Translate all of the texts belllow this:*/}
           <nav className="flex flex-col items-center justify-center sm:mt-30 mb-10">
-            <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">Have a project idea or are interested in my services?</h2>
-            <p className="mt-1 font-bold text-2xl sm:text-3xl">Contact me!</p>
+            <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">{t("contact_subtext")}?</h2>
+            <p className="mt-1 font-bold text-2xl sm:text-3xl">{t("contact.title")}!</p>
             <Card className="sm:min-w-20 sm:w-150 mt-4">
               <CardContent className="flex flex-col items-center gap-2">
                 <SocialCard items={socialItems} />
@@ -84,7 +84,6 @@ export default function App() {
         </footer>
         <Dock />
       </div>
-      <Toaster position="top-center" />
     </ThemeProvider >
   );
 }
