@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const languageColors: Record<string, string> = {
   // Frontend
-  JavaScript: "hover:bg-yellow-400",
+  JavaScript: "hover:bg-yellow-600",
   TypeScript: "hover:bg-blue-600",
   React: "hover:bg-cyan-400",
   "Next.js": "hover:bg-black",

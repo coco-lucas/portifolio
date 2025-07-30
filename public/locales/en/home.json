@@ -1,17 +1,13 @@
 {
   "about-me": "I'm a 19 years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.",
-  "contact_card-socials": "Or connect with me on",
-  "contact_form-desc": "Fill out the form below to get in touch with me",
-  "contact_form-email-placeholder": "Your best e-mail",
-  "contact_form-name": "Name",
-  "contact_form-name-placeholder": "Your name",
-  "contact_form-tittle": "Send me a message",
-  "contact_mail-button": "E-mail me",
-  "contact_subtext": "Have a project idea or are interested in my services",
   "contact": {
     "title": "Contact me",
-    "desc": "Fill out the form below to get in touch with me",
+    "subtext": "Have a project idea or are interested in my services",
+    "social": "Or connect with me on",
+    "button": "Email me",
     "form": {
+      "title": "Write your message",
+      "desc": "Fill out the form below to get in touch with me",
       "name": "Name",
       "name-placeholder": "Your name",
       "email": "E-mail",
@@ -68,10 +64,6 @@
       }
     }
   },
-  "curriculum": "My curriculum",
-  "curriculum_btn": "Curriculum",
-  "curriculum_mobile-subtitle": "Please, contact me to receive the curriculum file or open the website in a wider screen.",
-  "curriculum_mobile-title": "Unfortunately, PDF preview is not available on mobile ",
   "education": "Education",
   "education_certification": "Certifications",
   "education_certification-1-title": "Full Stack Developer Residency in ICT/Software",

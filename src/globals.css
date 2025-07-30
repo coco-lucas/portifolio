@@ -134,7 +134,7 @@
     @apply text-2xl sm:text-3xl font-bold text-start my-5 tracking-tight;
   }
   h4{
-    @apply font-bold text-lg tracking-tight;
+    @apply font-semibold tracking-tight;
   }
   nav{
     @apply mt-15;

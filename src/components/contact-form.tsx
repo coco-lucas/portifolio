@@ -25,10 +25,10 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
   const errorLimit = 4;
 
   const selectOptions = [
-    { key: "project", value: t("contact.form.subject-options.project"), label: t("contact.form.subject-options.project") },
-    { key: "job", value: t("contact.form.subject-options.job"), label: t("contact.form.subject-options.job") },
-    { key: "inquiry", value: t("contact.form.subject-options.inquiry"), label: t("contact.form.subject-options.inquiry") },
-    { key: "other", value: t("contact.form.subject-options.other"), label: t("contact.form.subject-options.other") },
+    { key: "project", value: "Project Collaboration", label: t("contact.form.subject-options.project") },
+    { key: "job", value: "Job Role", label: t("contact.form.subject-options.job") },
+    { key: "inquiry", value: "General Inquiry", label: t("contact.form.subject-options.inquiry") },
+    { key: "other", value: "Other", label: t("contact.form.subject-options.other") },
   ];
 
   const getTotalSubmissionCount = () => {

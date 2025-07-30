@@ -3,7 +3,6 @@ import { Button } from "../button";
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "../dialog";
-import ContactForm from "../../contact-form";
 import { useTranslation } from "react-i18next";
 import Contact from "../contact";
 
@@ -22,13 +21,13 @@ export default function SocialCard({ items }: SocialCardProps) {
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="secondary" className="items-center w-full text-lg sm:text-xl h-10 sm:h-12 mb-1 sm:mb-2 justify-center rounded-xl cursor-pointer">
-            <Mail className="size-6" /> {t("contact_mail-button")}
+            <Mail className="size-6" /> {t("contact.button")}
           </Button>
         </DialogTrigger>
         <DialogContent>
-          <DialogTitle>{t("contact_form-tittle")}!</DialogTitle>
+          <DialogTitle>{t("contact.form.title")}!</DialogTitle>
           <DialogDescription>
-            {t("contact.desc")}.
+            {t("contact.form.desc")}.
           </DialogDescription>
           <Contact />
         </DialogContent>
@@ -39,7 +38,7 @@ export default function SocialCard({ items }: SocialCardProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="text-base sm:text-lg font-normal">{t("contact_card-socials")}</p>
+        <p className="text-base sm:text-lg font-normal">{t("contact.social")}</p>
       </motion.h3>
       <div className="grid grid-cols-2 gap-2">
         <div className="gap-2">

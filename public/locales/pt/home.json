@@ -1,1 +1,86 @@
-{"about-me":"Sou um desenvolvedor de software de 19 anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.","contact":"Entre em contato","contact_card-socials":"Ou conecte-se em","contact_form-desc":"Preencha o formulário abaixo para entrar em contato comigo","contact_form-email-placeholder":"Seu melhor e-mail","contact_form-name":"Nome","contact_form-name-placeholder":"Seu nome","contact_form-tittle":"Envie-me uma mensagem","contact_mail-button":"Envie-me um e-mail","contact_subtext":"Tem uma ideia de projeto ou está interessado nos meus serviços","curriculum":"Meu currículo","curriculum_btn":"Currículo","curriculum_mobile-subtitle":"Por favor, entre em contato comigo para receber o arquivo do currículo ou abra o site em uma tela maior.","curriculum_mobile-title":"Infelizmente, a pré-visualização de PDF não está disponível no celular","education":"Educação","education_certification":"Certificações","education_certification-1-title":"Residência em TIC/Software como Desenvolvedor Full Stack","education_certification-2-title":"Iniciante em Programação","education_certification-3-title":"Certificação de Inglês (C1 Avançado)","education_credential":"Ver credencial","education_graduation":"Formatura","education_university":"Graduação","education_university-1-title":"Tecnólogo em Análise e Desenvolvimento de Sistemas","project":"Projetos","project_description":"Uma breve descrição do projeto vai aqui.","project_stack":"Tecnologias utilizadas","project_status-finished":"Concluído","project_status-on-going":"Em andamento","stack":"Tecnologias que utilizo","stack_back":"Desenvolvimento Back-end","stack_db":"Bancos de dados","stack_front":"Desenvolvimento Front-end","stack_tools":"Ferramentas"}
+{
+  "about-me": "Sou um desenvolvedor de software de 19 anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.",
+  "contact": {
+    "title": "Fale comigo",
+    "subtext": "Tem uma ideia de projeto ou se interessa pelos meus serviços",
+    "social": "Ou conecte-se comigo pelo",
+    "button": "Me envie um e-mail",
+    "form": {
+      "title": "Escreva a sua mensagem",
+      "desc": "Preencha o formulário abaixo para entrar em contato comigo",
+      "name": "Nome",
+      "name-placeholder": "Seu nome",
+      "email": "E-mail",
+      "email-placeholder": "Seu melhor e-mail",
+      "subject": "Assunto",
+      "subject-placeholder": "Selecione um assunto",
+      "subject-options": {
+        "project": "Colaboração em Projeto",
+        "job": "Oportunidade de Trabalho",
+        "inquiry": "Dúvidas em Geral",
+        "other": "Outro"
+      },
+      "custom": {
+        "label": "Assunto Personalizado",
+        "placeholder": "Especifique o assunto"
+      },
+      "message": "Mensagem",
+      "message-placeholder": "Escreva sua mensagem aqui",
+      "submit": {
+        "button": "Enviar Mensagem",
+        "loading": "Enviando...",
+        "success": "Mensagem enviada com sucesso",
+        "thanks": "Obrigado pelo contato! Responderei o mais rápido possível"
+      },
+      "errors": {
+        "input": {
+          "name": {
+            "required": "O nome é obrigatório",
+            "min-length": "O nome deve ter pelo menos 2 caracteres"
+          },
+          "email": {
+            "required": "O e-mail é obrigatório",
+            "invalid": "Formato de e-mail inválido"
+          },
+          "subject": {
+            "required": "O assunto é obrigatório"
+          },
+          "message": {
+            "required": "A mensagem é obrigatória",
+            "min-length": "A mensagem deve ter pelo menos 10 caracteres"
+          }
+        },
+        "send": "Erro ao enviar o e-mail. Por favor, tente novamente mais tarde",
+        "server": {
+          "title": "Erro ao conectar com o servidor",
+          "desc": "Atualize a página e tente novamente",
+          "contact": "Se precisar, entre em contato diretamente em"
+        },
+        "limit": {
+          "title": "Limite de envio atingido",
+          "desc": "Você atingiu o número máximo de envios permitidos",
+          "contact": "Entre em contato diretamente em"
+        }
+      }
+    }
+  },
+  "education": "Educação",
+  "education_certification": "Certificações",
+  "education_certification-1-title": "Residência em TIC/Software como Desenvolvedor Full Stack",
+  "education_certification-2-title": "Iniciante em Programação",
+  "education_certification-3-title": "Certificação de Inglês (C1 Avançado)",
+  "education_credential": "Ver credencial",
+  "education_graduation": "Formatura",
+  "education_university": "Graduação",
+  "education_university-1-title": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+  "project": "Projetos",
+  "project_description": "Uma breve descrição do projeto vai aqui.",
+  "project_stack": "Tecnologias utilizadas",
+  "project_status-finished": "Concluído",
+  "project_status-on-going": "Em andamento",
+  "stack": "Tecnologias que utilizo",
+  "stack_back": "Desenvolvimento Back-end",
+  "stack_db": "Bancos de dados",
+  "stack_front": "Desenvolvimento Front-end",
+  "stack_tools": "Ferramentas"
+}

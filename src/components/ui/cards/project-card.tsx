@@ -1,4 +1,4 @@
-import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link, Unlink } from "lucide-react";
+import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link } from "lucide-react";
 import { Badge } from "../badge";
 import {
   Card,
@@ -48,7 +48,7 @@ export default function ProjectCard({
       <CardHeader>
         {date &&
           <div className="flex items-center justify-start">
-            <p className="flex gap-0.5 text-xs font-semibold text-ring items-center" tabIndex={1}>
+            <p className="flex gap-0.5 text-xs font-normal text-ring items-center" tabIndex={1}>
               <Calendar size={14} />
               {date}
             </p>
@@ -70,7 +70,7 @@ export default function ProjectCard({
           )}
         </div>
         <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
-        <CardDescription className="text-md" tabIndex={4}>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis voluptas vero fugit reprehenderit, possimus error architecto ex excepturi laborum perferendis magni repudiandae laudantium maxime. Repellendus quos fuga distinctio corporis?</CardDescription>
+        <CardDescription className="text-base" tabIndex={4}>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis voluptas vero fugit reprehenderit, possimus error architecto ex excepturi laborum perferendis magni repudiandae laudantium maxime. Repellendus quos fuga distinctio corporis?</CardDescription>
       </CardHeader>
       <CardContent tabIndex={5}>
         <h4>{t("project_stack")}:</h4>
@@ -88,18 +88,14 @@ export default function ProjectCard({
           </div>
           <CardAction className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
-              {deployURL ? (
-                <Button variant="outline" className="cursor-pointer">
+              {deployURL && (
+                <Button variant="outline" className="cursor-pointer rounded-xl">
                   <Link />
-                </Button>
-              ) : (
-                <Button variant="link" className="cursor-not-allowed">
-                  <Unlink />
                 </Button>
               )}
             </a>
             <a href={githubURL} target="_blank">
-              <Button variant="outline" className="cursor-pointer">
+              <Button variant="outline" className="cursor-pointer rounded-xl">
                 <Github />
               </Button>
             </a>
