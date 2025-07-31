@@ -4,7 +4,6 @@ import { Button } from "./ui/button";
 import LanguageChanger from "./language-changer";
 import { Separator } from "./ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { HashLink } from "react-router-hash-link";
 
 export default function Dock() {
   const icons = [
