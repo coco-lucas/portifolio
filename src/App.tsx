@@ -26,7 +26,7 @@ export default function App() {
     <ObserverProvider>
       <ThemeProvider>
 
-        <div className="max-w-[350px] sm:max-w-3xl mx-auto mt-15 sm:mt-30">
+        <div className="max-w-sm sm:max-w-3xl mx-auto mt-15 sm:mt-30">
           <header className="flex flex-col sm:flex-row justify-center motion-preset-blur-down motion-duration-1000">
             <div className="sm:mr-10 flex-1">
               <nav id="about-me" className="mt-0">
