@@ -8,7 +8,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { AlertCircle, CloudAlert, OctagonAlert } from "lucide-react";
+import { AlertCircle, CloudAlert, Loader, Loader2Icon, LoaderCircle, OctagonAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
@@ -16,13 +16,15 @@ import { useState } from "react";
 
 export default function ContactForm({ isSubmitted }: { isSubmitted: (value: boolean) => void }) {
   const { t } = useTranslation();
-  const contactEmail = import.meta.env.VITE_EMAILJS_CONTACT_EMAIL || "null";
-
-  const [err, setErr] = useState(false);
-  const [errorCount, setErrorCount] = useState(0);
 
   const submissionLimit = 2;
   const errorLimit = 4;
+
+  const contactEmail = import.meta.env.VITE_EMAILJS_CONTACT_EMAIL || "error";
+
+  const [err, setErr] = useState(false);
+  const [errorCount, setErrorCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const selectOptions = [
     { key: "project", value: "Project Collaboration", label: t("contact.form.subject-options.project") },
@@ -39,7 +41,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
   const incrementTotalSubmissionCount = () => {
     const currentCount = getTotalSubmissionCount();
     const newCount = currentCount + 1;
-    document.cookie = `totalSubmissions=${newCount}; path=/; max-age=88000; httpOnly=true`;
+    document.cookie = `totalSubmissions=${newCount}; path=/; max-age=88000`;
   };
 
   const isDisabled = (errorCount >= errorLimit || getTotalSubmissionCount() >= submissionLimit);
@@ -87,15 +89,11 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
   })
 
   const onSubmit = (data: z.infer<typeof ContactSchema>) => {
-    if (getTotalSubmissionCount() >= 5) {
-      console.log("Submission limit reached");
-      return;
-    }
-
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    //parse the other subject if it exists to the subject in jsmail
     { data.otherSubject && (data.subject = data.otherSubject) };
 
     const templateParams = {
@@ -106,22 +104,19 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
       to_name: "Lucas C.",
     }
 
-
+    setIsLoading(true);
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((res) => {
         form.reset();
         isSubmitted(true);
-
+        setIsLoading(false);
         setErr(false);
         incrementTotalSubmissionCount();
-
-        setTimeout(() => {
-          isSubmitted(false);
-        }, 3000);
       })
       .catch((err) => {
         setErr(true);
         setErrorCount(errorCount + 1);
+        setIsLoading(false);
       })
   }
 
@@ -233,14 +228,21 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
           </div>
         )}
         {getTotalSubmissionCount() >= submissionLimit && (
-          <div className="flex flex-col items-center text-chart-3 text-sm text-center justify-center">
-            <div className="flex flex-row gap-1 mb-2">
+          <div className="flex flex-col items-center text-sm text-center justify-center">
+            <div className="flex flex-row gap-1">
               <AlertCircle className="size-5" />
               <p className="font-semibold">{t("contact.form.errors.limit.title")}.</p>
             </div>
             <p>{t("contact.form.errors.limit.desc")}.</p>
-            <p>{t("contact.form.errors.limit.contact")}:</p>
-            <a href="mailto:dev.lucascoco@gmail.com" className="underline">{contactEmail}</a>
+            <div className="mt-2 text-xs text-muted-foreground">
+              <p>{t("contact.form.errors.limit.contact")}:</p>
+              <a href="mailto:dev.lucascoco@gmail.com" className="underline">{contactEmail}</a>
+            </div>
+          </div>
+        )}
+        {getTotalSubmissionCount() > 0 && getTotalSubmissionCount() < submissionLimit && (
+          <div className="text-xs text-muted-foreground text-center">
+            <p>{t("contact.form.submit.count", { count: getTotalSubmissionCount() })}</p>
           </div>
         )}
         <Button
@@ -249,9 +251,12 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
           className="w-full cursor-pointer"
           variant="secondary"
         >
-          {t("contact.form.submit.button")}
+          {isLoading ? (
+            <Loader2Icon className="motion-rotate-loop-[1turn]/reset motion-ease-linear" />
+          ) : (
+            t("contact.form.submit.button")
+          )}
         </Button>
-        {/*TODO: Add Captcha*/}
       </form>
     </Form>
   )

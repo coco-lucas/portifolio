@@ -13,6 +13,7 @@ interface SocialCardProps {
 
 export default function SocialCard({ items }: SocialCardProps) {
   const { t } = useTranslation();
+
   const col1 = items.slice(0, 2);
   const col2 = items.slice(2, 4);
 
@@ -32,14 +33,9 @@ export default function SocialCard({ items }: SocialCardProps) {
           <Contact />
         </DialogContent>
       </Dialog>
-      <motion.h3
-        className="text-lg sm:text-xl -mb-2 mt-2 text-center"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <p className="text-base sm:text-lg font-normal">{t("contact.social")}</p>
-      </motion.h3>
+      <h3 className="text-base sm:text-lg font-normal -mb-2 mt-2 text-center">
+        {t("contact.social")}
+      </h3>
       <div className="grid grid-cols-2 gap-2">
         <div className="gap-2">
           {col1.map((item) => (

@@ -1,13 +1,14 @@
-import { BookOpenText, FolderCode, House, Inbox, MailOpenIcon } from "lucide-react";
+import { BookOpenText, FolderCode, House, MailOpenIcon, UserCircle2 } from "lucide-react";
 import { ThemeToggle } from "./theme-toogle";
 import { Button } from "./ui/button";
 import LanguageChanger from "./language-changer";
 import { Separator } from "./ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { HashLink } from "react-router-hash-link";
 
 export default function Dock() {
   const icons = [
-    { icon: <House />, key: "about-me", hover: "About Me" },
+    { icon: <UserCircle2 />, key: "about-me", hover: "About Me" },
     { icon: <FolderCode />, key: "projects", hover: "Projects" },
     { icon: <BookOpenText />, key: "education", hover: "Education" },
     { icon: <MailOpenIcon />, key: "contact", hover: "Contact" },
@@ -28,21 +29,20 @@ export default function Dock() {
             >
               <Tooltip>
                 <TooltipTrigger>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => {
-                      <a href={`/#${key}`}></a>
-                    }}
-                    className="
+                  <a href={`#${key}`}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="
                     transition-all duration-300 ease-in-out
                     dark:hover:bg-transparent hover:bg-transparent
                     hover:scale-150
                     hover:mx-3
                     "
-                  >
-                    {icon}
-                  </Button>
+                    >
+                      {icon}
+                    </Button>
+                  </a>
                 </TooltipTrigger>
                 <TooltipContent className="opacity-0 sm:opacity-100 transition-opacity duration-300 ease-in-out">
                   <p>{hover}</p>
@@ -51,9 +51,11 @@ export default function Dock() {
             </li>
           ))}
         </div>
-        <Separator orientation="vertical" className="mx-1 sm:mx-4" />
-        <li><ThemeToggle /></li>
-        <li><LanguageChanger /></li>
+        <Separator orientation="vertical" className="mx-2 sm:mx-4" />
+        <div className="flex flex-row items-center justify-center sm:gap-2">
+          <li><ThemeToggle /></li>
+          <li><LanguageChanger /></li>
+        </div>
       </ul>
     </div >
   )
