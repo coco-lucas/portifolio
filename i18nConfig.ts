@@ -17,11 +17,9 @@ const resources = {
 };
 
 i18n.use(initReactI18next).init({
-  debug: true,
   returnObjects: true,
   resources,
   fallbackLng: "en",
-  lng: "en",
   interpolation: {
     escapeValue: false,
   },

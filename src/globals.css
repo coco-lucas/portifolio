@@ -1,7 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "tailwindcss-motion";
+@plugin "tailwindcss-intersect";
+
 @custom-variant dark (&:is(.dark *));
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -74,6 +78,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --bg-dot-color: 0, 0, 0;
+  --bg-dot-opacity: 0.07;
   
   ::selection {
     background: oklch(0.205 0 0);
@@ -113,6 +119,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --bg-dot-color: 255,255,255;
+  --bg-dot-opacity: 0.06;
 
   ::selection {
     background: oklch(0.985 0 0);
@@ -127,10 +135,25 @@
   body {
     @apply bg-background text-foreground;
   }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle, rgba(var(--bg-dot-color),var(--bg-dot-opacity)) 1px, transparent 2px);
+    background-size: 15px 15px;
+    mask-image: radial-gradient(ellipse 40% 50%, #000 80%, transparent 100%);
+  }
   h3{
-    @apply text-3xl font-bold text-start my-5;
+    @apply text-2xl sm:text-3xl font-semibold text-start my-5 tracking-tight;
   }
   h4{
-    @apply font-bold text-lg tracking-tight;
+    @apply font-semibold tracking-tight;
+  }
+  nav{
+    @apply mt-15;
+  }
+  img{
+    @apply text-red-400;
   }
 }

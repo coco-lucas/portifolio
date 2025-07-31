@@ -1,12 +1,12 @@
 import { Code, Database, Server, ToolCase } from "lucide-react";
-import StackCard from "./ui/stack-card";
+import StackCard from "./ui/cards/stack-card";
 import { useTranslation } from "react-i18next";
 
-export default function TechStack(){
-  const {t} = useTranslation();
+export default function TechStack() {
+  const { t } = useTranslation();
 
   return (
-    <div className='grid grid-cols-2 gap-4 justify-items-center'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center'>
       <StackCard
         icon={<Code />}
         stackName={t("stack_front")}

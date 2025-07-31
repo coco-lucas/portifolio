@@ -1,1 +1,86 @@
-{"about-me":"I'm a 19 years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.","project":"My projects","project_description":"Brief description of the project goes here.","project_stack":"Used stack","project_status-finished":"Finished","project_status-on-going":"On going","stack":"My tech stack","stack_back":"Back-end Development","stack_db":"Databases","stack_front":"Front-end Development","stack_tools":"Tools"}
+{
+  "about-me": "I'm a 19 years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.",
+  "contact": {
+    "title": "Contact me",
+    "subtext": "Have a project idea or are interested in my services",
+    "social": "Or connect with me on",
+    "button": "Email me",
+    "form": {
+      "title": "Write your message",
+      "desc": "Fill out the form below to get in touch with me",
+      "name": "Name",
+      "name-placeholder": "Your name",
+      "email": "E-mail",
+      "email-placeholder": "Your best e-mail",
+      "subject": "Subject",
+      "subject-placeholder": "Select a subject",
+      "subject-options": {
+        "project": "Project Collaboration",
+        "job": "Job Role",
+        "inquiry": "General Inquiry",
+        "other": "Other"
+      },
+      "custom": {
+        "label": "Custom Subject",
+        "placeholder": "Specify custom subject"
+      },
+      "message": "Message",
+      "message-placeholder": "Write your message here",
+      "submit": {
+        "button": "Send Message",
+        "loading": "Sending...",
+        "success": "Message Sent Successfully",
+        "thanks": "Thank you for reaching out! I'll get back to you as soon as possible"
+      },
+      "errors": {
+        "input": {
+          "name": {
+            "required": "Name is required",
+            "min-length": "Name must be at least 2 characters long"
+          },
+          "email": {
+            "required": "E-mail is required",
+            "invalid": "Invalid e-mail format"
+          },
+          "subject": {
+            "required": "Subject is required"
+          },
+          "message": {
+            "required": "Message is required",
+            "min-length": "Message must be at least 10 characters long"
+          }
+        },
+        "send": "Error sending e-mail. Please, try again later",
+        "server": {
+          "title": "Error connecting to the server",
+          "desc": "Please, refresh the page and try again",
+          "contact": "If you need to reach me, contact me at"
+        },
+        "limit": {
+          "title": "Submission limit reached",
+          "desc": "You have reached the maximum number of submissions allowed",
+          "contact": "Please contact me directly at"
+        }
+      }
+    }
+  },
+  "education": "Education",
+  "education_certification": "Certifications",
+  "education_certification-1-title": "Full Stack Developer Residency in ICT/Software",
+  "education_certification-2-title": "Beginner Training in Programming",
+  "education_certification-3-title": "English Certificate (C1 Advanced)",
+  "education_credential": "View credential",
+  "education_graduation": "Graduation",
+  "education_university": "Formal Education",
+  "education_university-1-title": "Technologist Degree in System Analysis and Development",
+  "project": "Projects",
+  "project_description": "Brief description of the project goes here.",
+  "project_stack": "Used stack",
+  "project_status-finished": "Finished",
+  "project_status-on-going": "On going",
+  "stack": "Tech stack",
+  "stack_back": "Back-end Development",
+  "stack_db": "Databases",
+  "stack_front": "Front-end Development",
+  "stack_tools": "Tools"
+}

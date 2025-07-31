@@ -4,10 +4,8 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 
@@ -40,8 +38,6 @@ export default function LanguageChanger (){
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-24">
-        <DropdownMenuLabel>Languages</DropdownMenuLabel>
-        <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={currentLocale} onValueChange={handleChange}>
           {Object.keys(LANGUAGE_LABELS).map((lang) => (
             <DropdownMenuRadioItem key={lang} value={lang}>

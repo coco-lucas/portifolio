@@ -1,1 +1,86 @@
-{"about-me":"Soy un desarrollador de software de 19 años, especializado en la creación de aplicaciones web con React y SpringBoot. Hábil en Java, Typescript/Javascript y SQL, con experiencia en UI/UX, APIs RESTful y Docker.","project":"Mis proyectos","project_description":"Aquí va una breve descripción del proyecto.","project_stack":"Pila utilizada","project_status-finished":"Terminado","project_status-on-going":"En curso","stack":"Mi pila tecnológica","stack_back":"Desarrollo Back-end","stack_db":"Bases de datos","stack_front":"Desarrollo Front-end","stack_tools":"Herramientas"}
+{
+  "about-me": "Soy un desarrollador de software de 19 años, especializado en la creación de aplicaciones web con React y SpringBoot. Hábil en Java, Typescript/Javascript y SQL, con experiencia en UI/UX, APIs RESTful y Docker.",
+  "contact": {
+    "title": "Contáctame",
+    "subtext": "¿Tienes una idea de proyecto o estás interesado en mis servicios?",
+    "social": "O conéctate conmigo en",
+    "button": "Envíame un correo",
+    "form": {
+      "title": "Escribe tu mensaje",
+      "desc": "Rellena el formulario abajo para ponerte en contacto conmigo",
+      "name": "Nombre",
+      "name-placeholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "email-placeholder": "Tu mejor correo",
+      "subject": "Asunto",
+      "subject-placeholder": "Selecciona un asunto",
+      "subject-options": {
+        "project": "Colaboración en Proyecto",
+        "job": "Puesto de Trabajo",
+        "inquiry": "Consulta General",
+        "other": "Otro"
+      },
+      "custom": {
+        "label": "Asunto Personalizado",
+        "placeholder": "Especifica el asunto"
+      },
+      "message": "Mensaje",
+      "message-placeholder": "Escribe tu mensaje aquí",
+      "submit": {
+        "button": "Enviar Mensaje",
+        "loading": "Enviando...",
+        "success": "Mensaje enviado con éxito",
+        "thanks": "¡Gracias por tu mensaje! Me pondré en contacto contigo lo antes posible"
+      },
+      "errors": {
+        "input": {
+          "name": {
+            "required": "El nombre es obligatorio",
+            "min-length": "El nombre debe tener al menos 2 caracteres"
+          },
+          "email": {
+            "required": "El correo electrónico es obligatorio",
+            "invalid": "Formato de correo inválido"
+          },
+          "subject": {
+            "required": "El asunto es obligatorio"
+          },
+          "message": {
+            "required": "El mensaje es obligatorio",
+            "min-length": "El mensaje debe tener al menos 10 caracteres"
+          }
+        },
+        "send": "Error al enviar el correo. Por favor, inténtalo más tarde",
+        "server": {
+          "title": "Error al conectar con el servidor",
+          "desc": "Recarga la página e inténtalo de nuevo",
+          "contact": "Si necesitas contactarme, escribe a"
+        },
+        "limit": {
+          "title": "Límite de envíos alcanzado",
+          "desc": "Has alcanzado el número máximo de envíos permitidos",
+          "contact": "Por favor, contáctame directamente en"
+        }
+      }
+    }
+  },
+  "education": "Educación",
+  "education_certification": "Certificaciones",
+  "education_certification-1-title": "Residencia de Desarrollador Full Stack en TIC/Software",
+  "education_certification-2-title": "Entrenamiento para principiantes en programación",
+  "education_certification-3-title": "Certificado de Inglés (C1 Avanzado)",
+  "education_credential": "Ver credencial",
+  "education_graduation": "Graduación",
+  "education_university": "Educación Formal",
+  "education_university-1-title": "Tecnólogo en Análisis y Desarrollo de Sistemas",
+  "project": "Proyectos",
+  "project_description": "Aquí va una breve descripción del proyecto.",
+  "project_stack": "Tecnologías utilizadas",
+  "project_status-finished": "Terminado",
+  "project_status-on-going": "En curso",
+  "stack": "Tecnologías que utilizo",
+  "stack_back": "Desarrollo Back-end",
+  "stack_db": "Bases de datos",
+  "stack_front": "Desarrollo Front-end",
+  "stack_tools": "Herramientas"
+}
