@@ -1,7 +1,7 @@
 {
   "about-me": "Sou um desenvolvedor de software de 19 anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.",
   "contact": {
-    "title": "Fale comigo",
+    "title": "Entre em contato",
     "subtext": "Tem uma ideia de projeto ou se interessa pelos meus serviços",
     "social": "Ou conecte-se comigo pelo",
     "button": "Me envie um e-mail",
@@ -82,5 +82,11 @@
   "stack_back": "Desenvolvimento Back-end",
   "stack_db": "Bancos de dados",
   "stack_front": "Desenvolvimento Front-end",
-  "stack_tools": "Ferramentas"
+  "stack_tools": "Ferramentas",
+  "dock": {
+    "about-me": "Sobre Mim",
+    "projects": "Projetos",
+    "education": "Formação",
+    "contact": "Contato"
+  }
 }

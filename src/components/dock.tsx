@@ -4,13 +4,15 @@ import { Button } from "./ui/button";
 import LanguageChanger from "./language-changer";
 import { Separator } from "./ui/separator";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { useTranslation } from "react-i18next";
 
 export default function Dock() {
+  const { t } = useTranslation();
   const icons = [
-    { icon: <UserCircle2 />, key: "about-me", hover: "About Me" },
-    { icon: <FolderCode />, key: "projects", hover: "Projects" },
-    { icon: <BookOpenText />, key: "education", hover: "Education" },
-    { icon: <MailOpenIcon />, key: "contact", hover: "Contact" },
+    { icon: <UserCircle2 />, key: "about-me", hover: t("dock.about-me") },
+    { icon: <FolderCode />, key: "projects", hover: t("dock.projects") },
+    { icon: <BookOpenText />, key: "education", hover: t("dock.education") },
+    { icon: <MailOpenIcon />, key: "contact", hover: t("dock.contact") },
   ];
 
   return (
