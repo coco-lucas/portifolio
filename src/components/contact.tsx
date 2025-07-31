@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Card, CardContent } from "./card";
+import { Card, CardContent } from "./ui/card";
 import { CheckCheckIcon } from "lucide-react";
-import ContactForm from "../contact-form";
+import ContactForm from "./contact-form";
 
 export default function Contact() {
   const { t } = useTranslation();

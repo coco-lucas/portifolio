@@ -39,7 +39,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
   const incrementTotalSubmissionCount = () => {
     const currentCount = getTotalSubmissionCount();
     const newCount = currentCount + 1;
-    document.cookie = `totalSubmissions=${newCount}; path=/; max-age=88000`;
+    document.cookie = `totalSubmissions=${newCount}; path=/; max-age=88000; httpOnly=true`;
   };
 
   const isDisabled = (errorCount >= errorLimit || getTotalSubmissionCount() >= submissionLimit);

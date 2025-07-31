@@ -8,7 +8,7 @@ interface CardProps {
 
 export default function StackCard({ icon, stackName, techIcons }: CardProps) {
   return (
-    <Card className="sm:min-w-[375px] min-h-[190px] max-w-[350px]">
+    <Card className="sm:min-w-[375px] min-h-[190px] max-w-[350px] motion-preset-rebound-down motion-duration-1000">
       <CardHeader>
         <div className="flex items-center justify-center bg-(--muted) min-h-12 min-w-12 w-fit rounded-full">
           {icon}

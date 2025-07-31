@@ -13,7 +13,7 @@ export default function Education() {
         </h3>
         <GraduationCap size={30} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
         <EducationCard
           title={t("education_university-1-title")}
           corporation="UNIFESO - Centro Universitário Serra dos Órgãos"
@@ -28,7 +28,7 @@ export default function Education() {
         <Award size={30} />
         <Separator orientation="horizontal" className="flex-1/2 hidden sm:block" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect:motion-preset-blur-left intersect:motion-duration-1000 intersect:motion-delay-300">
         <EducationCard
           title={t("education_certification-1-title")}
           corporation="SERRATEC - Parque Tecnológico da Região Serrana"
