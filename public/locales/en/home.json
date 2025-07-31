@@ -30,7 +30,8 @@
         "button": "Send Message",
         "loading": "Sending...",
         "success": "Message Sent Successfully",
-        "thanks": "Thank you for reaching out! I'll get back to you as soon as possible"
+        "thanks": "Thank you for reaching out! I'll get back to you as soon as possible",
+        "count": "You have submitted {{count}} e-mail(s) so far"
       },
       "errors": {
         "input": {
@@ -58,7 +59,7 @@
         },
         "limit": {
           "title": "Submission limit reached",
-          "desc": "You have reached the maximum number of submissions allowed",
+          "desc": "You have reached the maximum number of e-mails submissions allowed",
           "contact": "Please contact me directly at"
         }
       }
