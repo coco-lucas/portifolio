@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ui/cards/project-card";
-import { Card, CardHeader, CardTitle } from "./ui/card";
-import { Code, GitGraph, Github } from "lucide-react";
-import { Badge } from "./ui/badge";
 
 export default function () {
   const { t } = useTranslation();

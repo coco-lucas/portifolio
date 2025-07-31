@@ -8,7 +8,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { AlertCircle, CloudAlert, Loader, Loader2Icon, LoaderCircle, OctagonAlert } from "lucide-react";
+import { AlertCircle, CloudAlert, Loader2Icon, OctagonAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
@@ -107,6 +107,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
     setIsLoading(true);
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((res) => {
+        res.status === 200 && console.log("Email sent successfully:", res);
         form.reset();
         isSubmitted(true);
         setIsLoading(false);
@@ -114,6 +115,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
         incrementTotalSubmissionCount();
       })
       .catch((err) => {
+        console.error("Failed to send email:", err);
         setErr(true);
         setErrorCount(errorCount + 1);
         setIsLoading(false);

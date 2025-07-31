@@ -1,4 +1,4 @@
-import { BookOpenText, FolderCode, House, MailOpenIcon, UserCircle2 } from "lucide-react";
+import { BookOpenText, FolderCode, MailOpenIcon, UserCircle2 } from "lucide-react";
 import { ThemeToggle } from "./theme-toogle";
 import { Button } from "./ui/button";
 import LanguageChanger from "./language-changer";

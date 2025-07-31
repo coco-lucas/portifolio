@@ -1,7 +1,6 @@
 import type { JSX } from "react";
 import { Button } from "../button";
 import { Mail } from "lucide-react";
-import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "../dialog";
 import { useTranslation } from "react-i18next";
 import Contact from "../../contact";

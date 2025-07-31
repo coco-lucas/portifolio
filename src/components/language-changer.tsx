@@ -6,24 +6,22 @@ import {
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-} from "@/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 
-const LANGUAGE_LABELS: Record<string, string>={
+const LANGUAGE_LABELS: Record<string, string> = {
   en: "English",
   pt: "Português",
   es: "Español"
-}  
+}
 
-export default function LanguageChanger (){
+export default function LanguageChanger() {
   const { i18n } = useTranslation();
   const currentLocale = i18n.language || "en";
 
-  const handleChange = (lang : string) => {
+  const handleChange = (lang: string) => {
     if (lang === currentLocale) return;
 
-    
-    
     const days = 30;
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -34,7 +32,7 @@ export default function LanguageChanger (){
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" value={currentLocale}>
-          <Languages/>
+          <Languages />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-24">
