@@ -83,5 +83,11 @@
   "stack_back": "Back-end Development",
   "stack_db": "Databases",
   "stack_front": "Front-end Development",
-  "stack_tools": "Tools"
+  "stack_tools": "Tools",
+  "dock": {
+    "about-me": "About Me",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  }
 }

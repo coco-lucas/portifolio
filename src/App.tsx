@@ -17,7 +17,7 @@ export default function App() {
 
   const socialItems = [
     { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
-    { icon: <Instagram className="size-4 sm:size-5" />, name: "Instagram", link: "https://www.instagram.com/lucas_coco_/" },
+    { icon: <Instagram className="size-4 sm:size-5" />, name: "Instagram", link: "https://www.instagram.com/lucas.coco_/" },
     { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/lucauxs" },
     { icon: <i className="devicon-behance-plain" />, name: "Behance", link: "https://behance.net/coco-lucas" }
   ];
@@ -26,7 +26,7 @@ export default function App() {
     <ObserverProvider>
       <ThemeProvider>
 
-        <div className="max-w-[350px] sm:max-w-3xl mx-auto mt-15 sm:mt-30">
+        <div className="max-w-sm sm:max-w-3xl mx-auto mt-15 sm:mt-30">
           <header className="flex flex-col sm:flex-row justify-center motion-preset-blur-down motion-duration-1000">
             <div className="sm:mr-10 flex-1">
               <nav id="about-me" className="mt-0">
@@ -80,7 +80,11 @@ export default function App() {
           </main>
           <footer className="text-sm text-muted-foreground border-t border-muted py-4 mb-15 sm:mb-5">
             <div className="flex flex-row justify-between items-center">
-              <p className="text-foreground intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-300">2025 • ©Lucas Coco</p>
+              <div className="flex flex-row gap-2 text-foreground intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-300">
+                <p>2025</p>
+                <p>•</p>
+                <p>©Lucas Coco</p>
+              </div>
               <div className="flex flex-row justify-evenly gap-4 intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-300">
                 <a href="https://www.x.com/lucauxs">Twitter</a>
                 <a href="https://www.github.com/coco-lucas/">GitHub</a>

@@ -69,6 +69,7 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
+        {/*TODO: Add images and fallback images*/}
         <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
         <CardDescription className="text-base" tabIndex={4}>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis voluptas vero fugit reprehenderit, possimus error architecto ex excepturi laborum perferendis magni repudiandae laudantium maxime. Repellendus quos fuga distinctio corporis?</CardDescription>
       </CardHeader>

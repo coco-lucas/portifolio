@@ -19,7 +19,7 @@ export default function EducationCard({ title, corporation, corporationURL, type
   const { t } = useTranslation();
 
   return (
-    <Card className="min-h-[172px] min-w-[370px] max-h-[172px] max-w-[335px] ">
+    <Card className="min-h-[172px] max-h-[172px]">
       <CardHeader>
         <CardTitle className="font-semibold">{title}</CardTitle>
         <a href={corporationURL} target="_blank">
