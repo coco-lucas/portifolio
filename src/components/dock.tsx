@@ -16,7 +16,7 @@ export default function Dock() {
   ];
 
   return (
-    <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-solid border-(--border) p-3 sm:px-6 py-1 sm:py-2 rounded-full motion-preset-focus-lg motion-delay-500">
+    <div className="fixed bottom-3 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-solid border-(--border) p-3 sm:px-6 py-2 rounded-full motion-preset-focus-lg motion-delay-500">
       <ul className="flex flex-row justify-center items-center list-none m-0 p-0">
         <div className="flex flex-row group/icon-dock">
           {icons.map(({ icon, key, hover }, idx, arr) => (
