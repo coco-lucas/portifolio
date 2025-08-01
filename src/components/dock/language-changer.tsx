@@ -6,8 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
 
 const LANGUAGE_LABELS: Record<string, string> = {
   en: "English",

@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { AlertCircle, CloudAlert, Loader2Icon, OctagonAlert } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";

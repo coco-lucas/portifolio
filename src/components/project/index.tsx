@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import ProjectCard from "./ui/cards/project-card";
-import tereverde from "../assets/projects/tere-verde/tere-verde-home.png";
+import ProjectCard from "./card";
+import tereverde from "../../assets/projects/tere-verde/tere-verde-home.png";
 
 export default function () {
   const { t } = useTranslation();

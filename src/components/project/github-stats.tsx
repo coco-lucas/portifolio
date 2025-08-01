@@ -1,5 +1,5 @@
 import { Code, GitGraph, Github } from "lucide-react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 export default function GitHubStats() {
   const repositories = 25;

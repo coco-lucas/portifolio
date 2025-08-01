@@ -1,9 +1,9 @@
 import type { JSX } from "react";
-import { Button } from "../button";
+import { Button } from "../ui/button";
 import { Mail } from "lucide-react";
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "../dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { useTranslation } from "react-i18next";
-import Contact from "../../contact";
+import Contact from "../contact";
 
 
 interface SocialCardProps {

@@ -1,9 +1,9 @@
 import { BookOpenText, FolderCode, MailOpenIcon, UserCircle2 } from "lucide-react";
 import { ThemeToggle } from "./theme-toogle";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import LanguageChanger from "./language-changer";
-import { Separator } from "./ui/separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Separator } from "../ui/separator";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { useTranslation } from "react-i18next";
 
 export default function Dock() {

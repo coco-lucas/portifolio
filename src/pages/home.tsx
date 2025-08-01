@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import Dock from "../components/dock";
 import Education from "../components/education";
-import GitHubStats from "../components/github-stats";
-import Projects from "../components/projects";
+import GitHubStats from "../components/project/github-stats";
+import Projects from "../components/project";
 import TechStack from "../components/tech-stack";
 import { Card, CardContent } from "../components/ui/card";
-import SocialCard from "../components/ui/cards/social-card";
+import SocialCard from "../components/social";
 import { Instagram } from "lucide-react";
 import LucasCoco from "../assets/lucas-coco-ai.png";
 
