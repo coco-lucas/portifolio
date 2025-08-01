@@ -74,11 +74,22 @@
   "education_graduation": "Graduation",
   "education_university": "Formal Education",
   "education_university-1-title": "Technologist Degree in System Analysis and Development",
-  "project": "Projects",
-  "project_description": "Brief description of the project goes here.",
-  "project_stack": "Used stack",
-  "project_status-finished": "Finished",
-  "project_status-on-going": "On going",
+  "project": {
+    "title": "Projects",
+    "stack": "Used stack",
+    "status": {
+      "finished": "Finished",
+      "on-going": "On going"
+    },
+    "view-more": "Load more projects",
+    "view-less": "View less projects",
+    "tere-verde": {
+      "description": "Terê Verde is a website we developed from the ground up to highlight the natural attractions and ecotourism opportunities in Teresópolis. Unlike the city’s official platform - which suffers from poor design, slow navigation, and a lack of accessibility — our solution offers a clean, responsive interface with intuitive filters and fast performance, making it easy for any visitor to explore the region’s biodiversity with just a few clicks."
+    },
+    "mock": {
+      "description": "Brief description of the project goes here."
+    }
+  },
   "stack": "Tech stack",
   "stack_back": "Back-end Development",
   "stack_db": "Databases",

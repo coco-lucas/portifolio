@@ -73,11 +73,22 @@
   "education_graduation": "Graduación",
   "education_university": "Educación Formal",
   "education_university-1-title": "Tecnólogo en Análisis y Desarrollo de Sistemas",
-  "project": "Proyectos",
-  "project_description": "Aquí va una breve descripción del proyecto.",
-  "project_stack": "Tecnologías utilizadas",
-  "project_status-finished": "Terminado",
-  "project_status-on-going": "En curso",
+  "project": {
+    "title": "Proyectos",
+    "stack": "Tecnologías utilizadas",
+    "status": {
+      "finished": "Finalizado",
+      "on-going": "En progreso"
+    },
+    "view-more": "Cargar más proyectos",
+    "view-less": "Ver menos proyectos",
+    "tere-verde": {
+      "description": "Terê Verde es un sitio web que desarrollamos desde cero para destacar las atracciones naturales y las oportunidades de ecoturismo en Teresópolis. A diferencia de la plataforma oficial de la ciudad — que sufre de mal diseño, navegación lenta y falta de accesibilidad — nuestra solución ofrece una interfaz limpia y responsiva, con filtros intuitivos y alto rendimiento, lo que facilita que cualquier visitante explore la biodiversidad de la región con solo unos clics."
+    },
+    "mock": {
+      "description": "Breve descripción del proyecto va aquí."
+    }
+  },
   "stack": "Tecnologías que utilizo",
   "stack_back": "Desarrollo Back-end",
   "stack_db": "Bases de datos",

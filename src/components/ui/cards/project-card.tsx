@@ -60,21 +60,21 @@ export default function ProjectCard({
           {isFinished ? (
             <Badge className="bg-(--chart-2) pointer-events-none">
               <BadgeCheckIcon />
-              {t("project_status-finished")}
+              {t("project.status.finished")}
             </Badge>
           ) : (
             <Badge className="bg-(--chart-3) pointer-events-none">
               <CircleEllipsis />
-              {t("project_status-on-going")}
+              {t("project.status.on-going")}
             </Badge>
           )}
         </div>
         {/*TODO: Add images and fallback images*/}
         <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
-        <CardDescription className="text-base" tabIndex={4}>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa blanditiis voluptas vero fugit reprehenderit, possimus error architecto ex excepturi laborum perferendis magni repudiandae laudantium maxime. Repellendus quos fuga distinctio corporis?</CardDescription>
+        <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>
       </CardHeader>
       <CardContent tabIndex={5}>
-        <h4>{t("project_stack")}:</h4>
+        <h4>{t("project.stack")}:</h4>
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-wrap gap-2" tabIndex={6}>
             {badge.map((element) => (
