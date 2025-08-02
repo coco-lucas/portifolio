@@ -11,7 +11,8 @@ import {
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 import { getLanguageColor } from "../../lib/utils";
-import ProjectCarousel, { type CarouselProps } from "./carousel";
+import { type CarouselProps } from "./carousel";
+import ProjectTabs from "./tabs";
 
 export interface ProjectProps {
   title: string;
@@ -74,8 +75,8 @@ export default function ProjectCard({
         </div>
         {/*TODO: Add images and fallback images*/}
         {/* <img src={img} alt={alt} className="rounded-xl" tabIndex={3} /> */}
-        <ProjectCarousel pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
-        <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>
+        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
+        <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>{/*TODO:Add a show more/ show less button*/}
       </CardHeader>
       <CardContent tabIndex={5}>
         <h4>{t("project.stack")}:</h4>
