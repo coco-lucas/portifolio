@@ -11,13 +11,15 @@ import {
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 import { getLanguageColor } from "../../lib/utils";
+import ProjectCarousel, { type CarouselProps } from "./carousel";
 
 export interface ProjectProps {
   title: string;
   date?: string;
   isFinished: boolean;
-  imageURL: string;
-  alt: string;
+  pcImg: CarouselProps["pcImg"];
+  mobileImg: CarouselProps["mobileImg"];
+  alt: CarouselProps["alt"];
   description: string;
   badge: string[];
   badgeClassname?: string;
@@ -29,7 +31,8 @@ export default function ProjectCard({
   title,
   date,
   isFinished,
-  imageURL,
+  pcImg,
+  mobileImg,
   alt,
   description,
   badge,
@@ -70,7 +73,8 @@ export default function ProjectCard({
           )}
         </div>
         {/*TODO: Add images and fallback images*/}
-        <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
+        {/* <img src={img} alt={alt} className="rounded-xl" tabIndex={3} /> */}
+        <ProjectCarousel pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
         <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>
       </CardHeader>
       <CardContent tabIndex={5}>
