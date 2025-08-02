@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "../ui/carousel";
-import { Separator } from "../ui/separator";
+import "react-medium-image-zoom/dist/styles.css";
+import Image from "../ui/image";
 
 export interface CarouselProps {
   pcImg?: string | string[];
@@ -13,7 +14,6 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-
 
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
   return (
     <>
       {pcImg.length === 1 || mobileImg.length === 1 ? (
-        <img src={type === "pc" ? pcImg[0] : mobileImg[0]} alt={alt} className="rounded-xl" tabIndex={1} />
+        <Image src={type === "pc" ? pcImg[0] : mobileImg[0]} alt={alt} tabIndex={1} />
       ) : (
         <Carousel setApi={setApi}>
           <CarouselContent>
@@ -38,9 +38,9 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
               <CarouselItem key={index}>
                 <div className="p-1 flex justify-center items-center text-center">
                   {type === "pc" ? (
-                    <img src={pcImg[index]} alt={alt} className="rounded-xl" tabIndex={3} />
+                    <Image src={pcImg[index]} alt={alt} tabIndex={3} />
                   ) : (
-                    <img src={mobileImg[index]} alt={alt} className="rounded-xl max-h-[580px] sm:max-h-96" tabIndex={3} />
+                    <Image src={mobileImg[index]} alt={alt} className="max-h-[580px] sm:max-h-96" tabIndex={3} />
                   )}
                 </div>
               </CarouselItem>
@@ -59,54 +59,6 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
           </div>
         </Carousel>
       )}
-      {/*
-          {pcImg.length === 1 ? (
-            <Carousel setApi={setApi}>
-              <CarouselContent>
-                {Array.from({ length: pcImg.length }).map((_, index) => (
-                  <CarouselItem>
-                    <div className="p-1">
-                      <img src={pcImg[index]} alt={alt} className="rounded-xl" tabIndex={3} />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex flex-row items-center mt-5 justify-between">
-                <div className="flex items-center gap-2 justify-start">
-                  <CarouselPrevious />
-                  <CarouselNext />
-
-                </div>
-                <span className="text-sm text-muted-foreground self-start">
-                  {current} / {count}
-                </span>
-
-              </div>
-            </Carousel>
-          )}
-       
-
-            <Carousel setApi={setApi}>
-              <CarouselContent>
-                {Array.from({ length: mobileImg.length }).map((_, index) => (
-                  <CarouselItem>
-                    <div className="p-1">
-                      <img src={mobileImg[index]} alt={alt} className="rounded-xl" tabIndex={3} />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex items-center justify-between">
-                <CarouselPrevious />
-                <CarouselNext />
-                <span className="flex justify-center text-sm text-muted-foreground">
-                  {current} / {count}
-                </span>
-
-              </div>
-            </Carousel>
-          // 
-      */}
     </>
   )
 }
