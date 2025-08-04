@@ -157,3 +157,10 @@
     @apply text-red-400;
   }
 }
+
+.custom-zoom [data-rmiz-modal-overlay="visible"] {
+  @apply bg-black/50 backdrop-blur-xs;
+}
+.custom-zoom [data-rmiz-btn-unzoom]{
+  @apply hidden;
+}

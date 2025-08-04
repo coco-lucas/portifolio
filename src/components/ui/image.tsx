@@ -3,7 +3,7 @@ import "react-medium-image-zoom/dist/styles.css";
 
 export default function Image({ src, alt, className, tabIndex, ...props }: { src: string; alt: string; className?: string; tabIndex?: number }) {
   return (
-    <Zoom zoomMargin={10} classDialog="[data-rmiz-modal-overlay='visible']:bg-transparent">
+    <Zoom zoomMargin={10} classDialog="custom-zoom">
       <img
         src={src}
         alt={alt}
