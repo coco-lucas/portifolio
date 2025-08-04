@@ -2,7 +2,7 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { cn } from "../../lib/utils"
 import { Button } from "./button"
@@ -183,7 +183,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "size-8 rounded-full",
+        "size-8 items-center rounded-full active:scale-90 sm:active:scale-95 cursor-pointer",
         orientation === "horizontal"
           ? "top-1/2 -left-12 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -193,7 +193,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <ChevronLeft className="sm:size-8 mr-0.5" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -213,7 +213,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "size-8 rounded-full",
+        "size-8 rounded-full active:scale-90 sm:active:scale-95 cursor-pointer",
         orientation === "horizontal"
           ? "top-1/2 -right-12 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -223,7 +223,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <ChevronRight className="sm:size-8 ml-0.5 active:scale-05" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

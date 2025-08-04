@@ -13,7 +13,7 @@ export interface CarouselProps {
 export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type }: CarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
 
   useEffect(() => {
@@ -52,10 +52,18 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
               <CarouselNext />
 
             </div>
-            <span className="text-sm text-muted-foreground self-start">
-              {current} / {count}
-            </span>
-
+            <div className="flex gap-1 self-start -mt-1.5">
+              {Array.from({ length: count }).map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-colors ${current - 1 === idx ? "bg-primary/50" : "bg-muted"
+                    }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  onClick={() => api?.scrollTo(idx)}
+                />
+              ))}
+            </div>
           </div>
         </Carousel>
       )}
