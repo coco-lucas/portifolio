@@ -23,10 +23,13 @@ export default function Dock() {
             <li
               key={key}
               className={`
-            transition-all duration-200
-            ${idx !== arr.length - 1 ? "mr-2 sm:mr-4" : ""}
-            group/icon-dock
-            `}
+              motion-preset-focus-sm
+              motion-delay-${(idx + 1) * 200}
+              active:scale-75 sm:active:scale-85
+              transition-all duration-200
+              ${idx !== arr.length - 1 ? "mr-2 sm:mr-4" : ""}
+              group/icon-dock
+              `}
             >
               <Tooltip>
                 <TooltipTrigger>
@@ -35,11 +38,11 @@ export default function Dock() {
                       variant="ghost"
                       size="icon"
                       className="
-                    transition-all duration-300 ease-in-out
-                    dark:hover:bg-transparent hover:bg-transparent
-                    hover:scale-150
-                    hover:mx-3
-                    "
+                  transition-all duration-300 ease-in-out
+                  dark:hover:bg-transparent hover:bg-transparent
+                  hover:scale-150
+                  hover:mx-3
+                  "
                     >
                       {icon}
                     </Button>
@@ -54,8 +57,8 @@ export default function Dock() {
         </div>
         <Separator orientation="vertical" className="mx-2 sm:mx-4" />
         <div className="flex flex-row items-center justify-center sm:gap-2">
-          <li><ThemeToggle /></li>
-          <li><LanguageChanger /></li>
+          <li className="motion-preset-focus-sm motion-delay-800 active:scale-75 sm:active:scale-85"><ThemeToggle /></li>
+          <li className="motion-preset-focus-sm motion-delay-900"><LanguageChanger /></li>
         </div>
       </ul>
     </div >
