@@ -40,20 +40,7 @@ export default function () {
         badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
         githubURL="https://github.com/miguelMFR/tere-verde"
       />
-      <ProjectCard
-        title="Another Project"
-        isFinished={false}
-        pcImg={[
-          "https://picsum.photos/700/360?random=1"
-        ]}
-        mobileImg={[
-          "https://picsum.photos/270/550?random=2"
-        ]}
-        alt="Another Project Images"
-        description="This is a mock project, don't mind it. - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        badge={["TypeScript", "Node.js", "SpringBoot", "PostgreSQL", "Express"]}
-        githubURL="https://github.com/coco-lucas"
-      />
+
     </div >
   );
 }

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "seeMore": "See more",
+    "seeLess": "See less"
+  },
   "about-me": "I'm a 19 years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.",
   "contact": {
     "title": "Contact me",

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "seeMore": "Ver más",
+    "seeLess": "Ver menos"
+  },
   "about-me": "Soy un desarrollador de software de 19 años, especializado en la creación de aplicaciones web con React y SpringBoot. Hábil en Java, Typescript/Javascript y SQL, con experiencia en UI/UX, APIs RESTful y Docker.",
   "contact": {
     "title": "Contáctame",

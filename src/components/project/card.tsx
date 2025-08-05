@@ -1,4 +1,4 @@
-import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link } from "lucide-react";
+import { BadgeCheckIcon, Calendar, ChevronDown, ChevronUp, CircleEllipsis, Github, Link } from "lucide-react";
 import { Badge } from "../ui/badge";
 import {
   Card,
@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 import { getLanguageColor } from "../../lib/utils";
@@ -41,6 +42,9 @@ export default function ProjectCard({
   githubURL,
 }: ProjectProps) {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxCharacters = 150; // Adjust this value as needed
+  const isTooLong = description.length > maxCharacters;
 
   const getBadgeClassName = (language: string): string => {
     const color = getLanguageColor(language);
@@ -73,25 +77,47 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        {/*TODO: Add images and fallback images*/}
-        {/* <img src={img} alt={alt} className="rounded-xl" tabIndex={3} /> */}
         <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
-        <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>{/*TODO:Add a show more/ show less button*/}
+
+        <h4>{t("project.stack")}:</h4>
+        <div className="flex flex-wrap gap-2" tabIndex={6}>
+          {badge.map((element) => (
+            <Badge
+              variant="secondary"
+              className={getBadgeClassName(element)}
+              key={element}
+            >
+              {element}
+            </Badge>
+          ))}
+        </div>
       </CardHeader>
       <CardContent tabIndex={5}>
-        <h4>{t("project.stack")}:</h4>
-        <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-wrap gap-2" tabIndex={6}>
-            {badge.map((element) => (
-              <Badge
-                variant="secondary"
-                className={getBadgeClassName(element)}
-                key={element}
-              >
-                {element}
-              </Badge>
-            ))}
-          </div>
+        <CardDescription className="text-base" tabIndex={4}>
+          {isTooLong && !isExpanded
+            ? description.substring(0, maxCharacters) + "..."
+            : description
+          }
+          {isTooLong && (
+            <Button
+              variant="link"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-1 cursor-pointer h-auto text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
+            >
+              {isExpanded ? (
+                <>
+                  {t("common.seeLess", "See less")} <ChevronUp className="size-4! mt-0.5" />
+                </>
+              ) : (
+                <>
+                  {t("common.seeMore", "See more")} <ChevronDown className="size-4! mt-0.5" />
+                </>
+              )}
+            </Button>
+          )}
+        </CardDescription>
+
+        <div className="flex flex-row justify-end items-center">
           <CardAction className="flex flex-col sm:flex-row items-center self-end gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
               {deployURL && (
