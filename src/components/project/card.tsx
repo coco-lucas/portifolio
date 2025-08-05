@@ -1,5 +1,5 @@
-import { BadgeCheckIcon, Calendar, CircleEllipsis, Github, Link } from "lucide-react";
-import { Badge } from "../badge";
+import { BadgeCheckIcon, Calendar, ChevronDown, ChevronUp, CircleEllipsis, Github, Link } from "lucide-react";
+import { Badge } from "../ui/badge";
 import {
   Card,
   CardAction,
@@ -7,17 +7,21 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../card";
+} from "../ui/card";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "../button";
-import { getLanguageColor } from "../../../lib/utils";
+import { Button } from "../ui/button";
+import { getLanguageColor } from "../../lib/utils";
+import { type CarouselProps } from "./carousel";
+import ProjectTabs from "./tabs";
 
 export interface ProjectProps {
   title: string;
   date?: string;
   isFinished: boolean;
-  imageURL: string;
-  alt: string;
+  pcImg: CarouselProps["pcImg"];
+  mobileImg: CarouselProps["mobileImg"];
+  alt: CarouselProps["alt"];
   description: string;
   badge: string[];
   badgeClassname?: string;
@@ -29,7 +33,8 @@ export default function ProjectCard({
   title,
   date,
   isFinished,
-  imageURL,
+  pcImg,
+  mobileImg,
   alt,
   description,
   badge,
@@ -37,6 +42,9 @@ export default function ProjectCard({
   githubURL,
 }: ProjectProps) {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxCharacters = 150;
+  const isTooLong = description.length > maxCharacters;
 
   const getBadgeClassName = (language: string): string => {
     const color = getLanguageColor(language);
@@ -69,24 +77,54 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        {/*TODO: Add images and fallback images*/}
-        <img src={imageURL} alt={alt} className="rounded-xl" tabIndex={3} />
-        <CardDescription className="text-base" tabIndex={4}>{description}</CardDescription>
+        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
+
+        <h4>{t("project.stack")}:</h4>
+        <div className="flex flex-wrap gap-2" tabIndex={6}>
+          {badge.map((element) => (
+            <Badge
+              variant="secondary"
+              className={getBadgeClassName(element)}
+              key={element}
+            >
+              {element}
+            </Badge>
+          ))}
+        </div>
       </CardHeader>
       <CardContent tabIndex={5}>
-        <h4>{t("project.stack")}:</h4>
-        <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-wrap gap-2" tabIndex={6}>
-            {badge.map((element) => (
-              <Badge
-                variant="secondary"
-                className={getBadgeClassName(element)}
-                key={element}
-              >
-                {element}
-              </Badge>
-            ))}
-          </div>
+        <CardDescription onClick={() => {
+          if (window.innerWidth < 640 && isExpanded) {
+            setIsExpanded(!isExpanded);
+          }
+        }}
+          className="text-base"
+          tabIndex={4}
+        >
+          {isTooLong && !isExpanded
+            ? description.substring(0, maxCharacters) + "..."
+            : description
+          }
+          {isTooLong && (
+            <Button
+              variant="link"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-1 cursor-pointer h-auto text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
+            >
+              {isExpanded ? (
+                <div className="hidden sm:flex flex-row">
+                  {t("project.see-less")} <ChevronUp className="size-4! mt-0.5" />
+                </div>
+              ) : (
+                <>
+                  {t("project.see-more")} <ChevronDown className="size-4! mt-0.5" />
+                </>
+              )}
+            </Button>
+          )}
+        </CardDescription>
+
+        <div className="flex f</>lex-row justify-end items-center">
           <CardAction className="flex flex-col sm:flex-row items-center self-end gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
               {deployURL && (

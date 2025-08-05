@@ -1,6 +1,6 @@
 import { Link } from "lucide-react";
-import { Button } from "../button";
-import { Card, CardContent, CardHeader, CardTitle } from "../card";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { useTranslation } from "react-i18next";
 
 type typeProps = "university" | "certification";

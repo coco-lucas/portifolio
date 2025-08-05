@@ -6,8 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-} from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+} from "../ui/dropdown-menu";
+import { Button } from "../ui/button";
 
 const LANGUAGE_LABELS: Record<string, string> = {
   en: "English",
@@ -33,6 +33,7 @@ export default function LanguageChanger() {
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" value={currentLocale}>
           <Languages />
+          {/*TODO: Implement language verification and store the language locally*/}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-24">
