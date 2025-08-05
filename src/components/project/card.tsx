@@ -43,7 +43,7 @@ export default function ProjectCard({
 }: ProjectProps) {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
-  const maxCharacters = 150; // Adjust this value as needed
+  const maxCharacters = 150;
   const isTooLong = description.length > maxCharacters;
 
   const getBadgeClassName = (language: string): string => {
@@ -93,7 +93,14 @@ export default function ProjectCard({
         </div>
       </CardHeader>
       <CardContent tabIndex={5}>
-        <CardDescription className="text-base" tabIndex={4}>
+        <CardDescription onClick={() => {
+          if (window.innerWidth < 640 && isExpanded) {
+            setIsExpanded(!isExpanded);
+          }
+        }}
+          className="text-base"
+          tabIndex={4}
+        >
           {isTooLong && !isExpanded
             ? description.substring(0, maxCharacters) + "..."
             : description
@@ -105,19 +112,19 @@ export default function ProjectCard({
               className="px-1 cursor-pointer h-auto text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
             >
               {isExpanded ? (
-                <>
-                  {t("common.seeLess", "See less")} <ChevronUp className="size-4! mt-0.5" />
-                </>
+                <div className="hidden sm:flex flex-row">
+                  {t("project.see-less")} <ChevronUp className="size-4! mt-0.5" />
+                </div>
               ) : (
                 <>
-                  {t("common.seeMore", "See more")} <ChevronDown className="size-4! mt-0.5" />
+                  {t("project.see-more")} <ChevronDown className="size-4! mt-0.5" />
                 </>
               )}
             </Button>
           )}
         </CardDescription>
 
-        <div className="flex flex-row justify-end items-center">
+        <div className="flex f</>lex-row justify-end items-center">
           <CardAction className="flex flex-col sm:flex-row items-center self-end gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
               {deployURL && (

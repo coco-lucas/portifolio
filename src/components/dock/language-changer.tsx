@@ -33,6 +33,7 @@ export default function LanguageChanger() {
       <DropdownMenuTrigger>
         <Button variant="ghost" size="icon" value={currentLocale}>
           <Languages />
+          {/*TODO: Implement language verification and store the language locally*/}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-24">

@@ -54,7 +54,6 @@ export default function Home() {
           <h3 id="projects">{t("project.title")}:</h3>
           <GitHubStats />
           <Projects />
-          {/*TODO:Make a Load More button to show others projects*/}
         </nav>
 
         <div id="education">

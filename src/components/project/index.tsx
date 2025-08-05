@@ -11,13 +11,16 @@ import tereVerdeVLibrasHome from "../../assets/projects/tere-verde/pc/vlibras-ho
 import tereVerdeMobileHome from "../../assets/projects/tere-verde/mobile/home.png";
 import tereVerdeMobileEventos from "../../assets/projects/tere-verde/mobile/eventos.png";
 import tereVerdeMobileNavBar from "../../assets/projects/tere-verde/mobile/navbar.png";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { CircleMinus, CirclePlus } from "lucide-react";
 
 export default function () {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="flex flex-col gap-4 w-full items-center sm:items-start justify-center sm:justify-start">
-      {/*TODO:Add a image zoom*/}
       <ProjectCard
         title="Terê Verde"
         date="06/2025"
@@ -41,6 +44,59 @@ export default function () {
         githubURL="https://github.com/miguelMFR/tere-verde"
       />
 
-    </div >
+      <div className="w-full mb-10 relative">
+        <div
+          className={`transition-all duration-500 ease-in-out ${!isExpanded ? "max-h-54 overflow-hidden" : ""}`}
+        >
+          {!isExpanded && (
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-background to-transparent z-10"></div>
+          )}
+
+          <ProjectCard
+            title="Placeholder Project"
+            date="08/2024"
+            isFinished={false}
+            pcImg={[
+              tereVerdePcHome,
+              tereVerdeVLibrasHome,
+              tereVerdePcEventos,
+            ]}
+            mobileImg={[
+              tereVerdeMobileHome,
+              tereVerdeMobileNavBar,
+              tereVerdeMobileEventos,
+            ]}
+            alt="Place Holder Project Images"
+            description={t("project.tere-verde.description")}
+            badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
+            githubURL="https://github.com/miguelMFR/tere-verde"
+          />
+        </div>
+
+        {!isExpanded && (
+          <div className="absolute mt-5 left-0 right-0 flex justify-center pb-2 z-20">
+            <Button
+              variant="outline"
+              onClick={() => setIsExpanded(true)}
+              className="cursor-pointer font-normal text-sm sm:text-base"
+            >
+              <CirclePlus />
+              {t("project.view-more")}
+            </Button>
+          </div>
+        )}
+      </div>
+      {isExpanded && (
+        <Button
+          variant="outline"
+          onClick={() => {
+            setIsExpanded(false);
+          }}
+          className="-mt-5 cursor-pointer self-center font-normal text-sm sm:text-base"
+        >
+          <CircleMinus />{t("project.view-less")}
+        </Button>
+      )}
+    </div>
   );
 }

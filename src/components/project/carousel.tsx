@@ -46,13 +46,13 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex flex-row items-center mt-5 justify-between">
+          <div className="flex flex-row items-center mt-3 sm:mt-5 justify-center sm:justify-between">
             <div className="flex items-center gap-2 justify-start">
-              <CarouselPrevious />
-              <CarouselNext />
+              <CarouselPrevious className="hidden sm:block" />
+              <CarouselNext className="hidden sm:block" />
 
             </div>
-            <div className="flex gap-1 self-start -mt-1.5">
+            <div className="flex gap-1 sm:self-start -mt-1.5">
               {Array.from({ length: count }).map((_, idx) => (
                 <button
                   key={idx}
