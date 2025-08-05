@@ -1,12 +1,11 @@
 import { useTranslation } from "react-i18next";
 import Dock from "../components/dock";
 import Education from "../components/education";
-import GitHubStats from "../components/project/github-stats";
 import Projects from "../components/project";
 import TechStack from "../components/tech-stack";
 import { Card, CardContent } from "../components/ui/card";
 import SocialCard from "../components/social";
-import { Instagram } from "lucide-react";
+import { Github, Instagram } from "lucide-react";
 import LucasCoco from "../assets/lucas-coco-ai.png";
 
 export default function Home() {
@@ -52,9 +51,23 @@ export default function Home() {
         </nav>
         <nav>
           <h3 id="projects">{t("project.title")}:</h3>
-          <GitHubStats />
-          <Projects />
         </nav>
+        <section className="flex flex-col justify-center items-center gap-6 gap-5 motion-preset-blur-up motion-duration-1000">
+          <div className="flex flex-row items-center justify-center sm:w-fit">
+            <Github size={30} />
+            <div className="flex flex-col justify-between h-full sm:ml-2 font-semibold text-center">
+              <p>GitHub:</p>
+              <a
+                href="https://github.com/coco-lucas"
+                target="_blank"
+                className="text-sm text-(--muted-foreground) hover:text-(--primary)"
+              >
+                @coco-lucas
+              </a>
+            </div>
+          </div>
+          <Projects />
+        </section>
 
         <div id="education">
           <Education />
