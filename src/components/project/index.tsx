@@ -45,12 +45,8 @@ export default function () {
       />
 
       <div className="w-full mb-10 relative">
-        <div
-          className={`transition-all duration-500 ease-in-out ${!isExpanded ? "max-h-54 overflow-hidden" : ""}`}
-        >
-          {!isExpanded && (
-            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-background to-transparent z-10"></div>
-          )}
+        <div className={`transition-all duration-500 ease-in-out ${!isExpanded ? "max-h-54 overflow-hidden" : ""}`}>
+          {!isExpanded && <div className="absolute bottom-0 left-0 right-0 h-54 bg-gradient-to-t from-background to-transparent z-10" />}
 
           <ProjectCard
             title="Placeholder Project"

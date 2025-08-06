@@ -31,7 +31,7 @@ export default function EducationCard({ title, corporation, corporationURL, type
       <CardContent className="flex flex-row-reverse justify-between items-end h-0">
         <div className="flex flex-col-reverse items-end">
           <p className="text-sm font-normal text-muted-foreground">
-            {type === "university" ? `${t("education_graduation")}:` : ""} {year}
+            {type === "university" ? `${t("education.graduation.year")}:` : ""} {year}
           </p>
           {type === "certification" && (
             <div style={{ position: "relative", width: "100%" }}>
@@ -47,7 +47,7 @@ export default function EducationCard({ title, corporation, corporationURL, type
               variant="link"
               className="text-s text-chart-2 font-semibold underline cursor-pointer p-0 h-auto group flex items-center gap-1"
             >
-              {t("education_credential")}
+              {t("education.certificate.credential")}
               <span className="transition-opacity sm:opacity-0 group-hover:opacity-100">
                 <Link className="size-3 sm:size-4" />
               </span>

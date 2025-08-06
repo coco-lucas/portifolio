@@ -64,15 +64,20 @@
       }
     }
   },
-  "education": "Educação",
-  "education_certification": "Certificações",
-  "education_certification-1-title": "Residência em TIC/Software como Desenvolvedor Full Stack",
-  "education_certification-2-title": "Iniciante em Programação",
-  "education_certification-3-title": "Certificação de Inglês (C1 Avançado)",
-  "education_credential": "Ver credencial",
-  "education_graduation": "Formatura",
-  "education_university": "Graduação",
-  "education_university-1-title": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+  "education": {
+    "certificate": {
+      "title": "Certificações",
+      "1": "Residência em Desenvolvimento Full Stack em TIC/Software",
+      "2": "Treinamento Introdutório em Programação",
+      "3": "Certificado de Inglês (C1 Avançado)",
+      "credential": "Ver credencial"
+    },
+    "graduation": {
+      "title": "Formação Acadêmica",
+      "year": "Conclusão",
+      "1": "Bacharelado em Ciência da Computação"
+    }
+  },
   "project": {
     "title": "Projetos",
     "stack": "Tecnologias utilizadas",
