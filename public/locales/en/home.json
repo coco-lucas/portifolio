@@ -93,6 +93,9 @@
     "tere-verde": {
       "description": "Terê Verde is a website we developed from the ground up to highlight the natural attractions and ecotourism opportunities in Teresópolis. Unlike the city’s official platform - which suffers from poor design, slow navigation, and a lack of accessibility — our solution offers a clean, responsive interface with intuitive filters and fast performance, making it easy for any visitor to explore the region’s biodiversity with just a few clicks."
     },
+    "orange-hub": {
+      "description": "Our challenge was to build a website to showcase the Orange's HUB in Petrópolis. The platform allows users to schedule visits, explore materials about the HUB, learn more about Orange’s services, and even generate a personalized report highlighting the products that caught their attention, helping Orange follow up with targeted and relevant information."
+    },
     "mock": {
       "description": "Brief description of the project goes here."
     }

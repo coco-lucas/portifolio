@@ -38,7 +38,6 @@ export default function () {
           tereVerdeMobileNavBar,
           tereVerdeMobileEventos,
         ]}
-        alt="Terê Verde Project Images"
         description={t("project.tere-verde.description")}
         badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
         githubURL="https://github.com/miguelMFR/tere-verde"
@@ -49,22 +48,20 @@ export default function () {
           {!isExpanded && <div className="absolute bottom-0 left-0 right-0 h-54 bg-gradient-to-t from-background to-transparent z-10" />}
 
           <ProjectCard
-            title="Placeholder Project"
-            date="08/2024"
-            isFinished={false}
+            title="The Orange HUB"
+            date="12/2024"
+            isFinished={true}
             pcImg={[
               tereVerdePcHome,
-              tereVerdeVLibrasHome,
-              tereVerdePcEventos,
+
             ]}
             mobileImg={[
               tereVerdeMobileHome,
-              tereVerdeMobileNavBar,
-              tereVerdeMobileEventos,
+
             ]}
-            alt="Place Holder Project Images"
-            description={t("project.tere-verde.description")}
-            badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
+            description={t("project.orange-hub.description")}
+            badge={["Java", "SpringBoot", "React", "Typescript", "CSS"]}
+            deployURL="https://www.linkedin.com/posts/elyn-beatriz-v-959381150_ontem-conclu%C3%ADmos-a-%C3%BAltima-etapa-da-resid%C3%AAncia-activity-7275949641450311680-zb16/"
             githubURL="https://github.com/miguelMFR/tere-verde"
           />
         </div>
