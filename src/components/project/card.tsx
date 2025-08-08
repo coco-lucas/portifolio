@@ -61,7 +61,11 @@ export default function ProjectCard({
           </div>}
         <div className="flex flex-row justify-between items-center" tabIndex={2}  >
           <CardTitle className="flex flex-col">
-            <h2 className="text-2xl font-extrabold">{title}</h2>
+            <h2 className="text-2xl font-extrabold">
+              {window.innerWidth < 640 && title.length > 15 && !isExpanded
+                ? `${title.substring(0, 15)}...`
+                : title}
+            </h2>
           </CardTitle>
           {isFinished ? (
             <Badge className="bg-(--chart-2) pointer-events-none">
@@ -122,8 +126,8 @@ export default function ProjectCard({
           )}
         </CardDescription>
 
-        <div className="flex f</>lex-row justify-end items-center">
-          <CardAction className="flex flex-col sm:flex-row items-center self-end gap-1 sm:gap-2">
+        <div className="flex flex-row justify-end items-center">
+          <CardAction className="flex flex-row items-center self-end mt-1 gap-1 sm:gap-2">
             <a href={deployURL} target="_blank">
               {deployURL && (
                 <Button variant="outline" className="cursor-pointer rounded-xl">
