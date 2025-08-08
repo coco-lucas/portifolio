@@ -16,6 +16,7 @@ import { type CarouselProps } from "./carousel";
 import ProjectTabs from "./tabs";
 
 export interface ProjectProps {
+  isExpandedFromParent?: boolean;
   title: string;
   date?: string;
   isFinished: boolean;
@@ -29,6 +30,7 @@ export interface ProjectProps {
 }
 
 export default function ProjectCard({
+  isExpandedFromParent,
   title,
   date,
   isFinished,
@@ -62,9 +64,11 @@ export default function ProjectCard({
         <div className="flex flex-row justify-between items-center" tabIndex={2}  >
           <CardTitle className="flex flex-col">
             <h2 className="text-2xl font-extrabold">
-              {window.innerWidth < 640 && title.length > 15 && !isExpanded
-                ? `${title.substring(0, 15)}...`
-                : title}
+              {window.innerWidth < 640 ? (
+                (!isExpanded || !isExpandedFromParent) && title.length > 15
+                  ? `${title.substring(0, 15)}...`
+                  : title
+              ) : title}
             </h2>
           </CardTitle>
           {isFinished ? (
@@ -111,15 +115,15 @@ export default function ProjectCard({
             <Button
               variant="link"
               onClick={() => setIsExpanded(!isExpanded)}
-              className="px-1 cursor-pointer h-auto text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
+              className="px-1 cursor-pointer h-0 text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
             >
               {isExpanded ? (
                 <div className="hidden sm:flex flex-row">
-                  {t("project.see-less")} <ChevronUp className="size-4! mt-0.5" />
+                  {t("project.see-less")} <ChevronUp className="size-4 mt-0.5" />
                 </div>
               ) : (
                 <>
-                  {t("project.see-more")} <ChevronDown className="size-4! mt-0.5" />
+                  {t("project.see-more")} <ChevronDown className="size-4 mt-0.5" />
                 </>
               )}
             </Button>

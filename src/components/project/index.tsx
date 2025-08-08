@@ -52,6 +52,7 @@ export default function () {
           {!isExpanded && <div className="absolute bottom-0 left-0 right-0 h-54 bg-gradient-to-t from-background to-transparent z-10" />}
 
           <ProjectCard
+            isExpandedFromParent={isExpanded}
             title="The Orange Experience HUB Portal"
             date="12/2024"
             isFinished={true}
