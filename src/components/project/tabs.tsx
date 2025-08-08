@@ -1,13 +1,15 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import ProjectCarousel, { type CarouselProps } from "./carousel";
 
-export default function ProjectTabs({ pcImg = [], mobileImg = [], alt }: CarouselProps, { hasPcImg = true, hasMobileImg = true }: { hasPcImg?: boolean; hasMobileImg?: boolean }) {
+export default function ProjectTabs({ pcImg = [], mobileImg = [], alt }: CarouselProps) {
+  const mobileDisabled = mobileImg.length === 0;
+  const pcDisabled = pcImg.length === 0;
 
   return (
     <Tabs defaultValue="pc">
       <TabsList>
-        <TabsTrigger disabled={!hasPcImg} value="pc">PC</TabsTrigger>
-        <TabsTrigger disabled={!hasMobileImg} value="mobile">Mobile</TabsTrigger>
+        <TabsTrigger disabled={pcDisabled} value="pc">PC</TabsTrigger>
+        <TabsTrigger disabled={mobileDisabled} value="mobile">Mobile</TabsTrigger>
       </TabsList>
       <TabsContent value="pc">
         <ProjectCarousel pcImg={pcImg} alt={alt} type="pc" />

@@ -20,9 +20,7 @@ export interface ProjectProps {
   date?: string;
   isFinished: boolean;
   pcImg: CarouselProps["pcImg"];
-  hasPcImg?: boolean;
-  mobileImg: CarouselProps["mobileImg"];
-  hasMobileImg?: boolean;
+  mobileImg?: CarouselProps["mobileImg"];
   description: string;
   badge: string[];
   badgeClassname?: string;
@@ -35,8 +33,6 @@ export default function ProjectCard({
   date,
   isFinished,
   pcImg,
-  hasPcImg = true,
-  hasMobileImg = true,
   mobileImg,
   description,
   badge,
@@ -79,7 +75,7 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={`${title} Project Images`} hasPcImg={hasPcImg} hasMobileImg={hasMobileImg} />
+        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={`${title} Project Images`} />
 
         <h4>{t("project.stack")}:</h4>
         <div className="flex flex-wrap gap-2" tabIndex={6}>
