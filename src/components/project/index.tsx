@@ -64,7 +64,6 @@ export default function () {
             description={t("project.orange-hub.description")}
             badge={["Java", "SpringBoot", "React", "TypeScript", "CSS"]}
             deployURL="https://www.linkedin.com/posts/elyn-beatriz-v-959381150_ontem-conclu%C3%ADmos-a-%C3%BAltima-etapa-da-resid%C3%AAncia-activity-7275949641450311680-zb16/"
-            githubURL="https://github.com/miguelMFR/tere-verde"
           />
         </div>
 

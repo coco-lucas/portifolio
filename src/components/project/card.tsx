@@ -116,7 +116,7 @@ export default function ProjectCard({
               className="px-1 cursor-pointer h-0 text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
             >
               {isExpanded ? (
-                <div className="hidden sm:flex flex-row">
+                <div className="hidden sm:flex flex-row text-ring">
                   {t("project.see-less")} <ChevronUp className="size-4 mt-0.5" />
                 </div>
               ) : (
@@ -129,7 +129,7 @@ export default function ProjectCard({
         </CardDescription>
 
         <div className="flex flex-row justify-end items-center">
-          <CardAction className="flex flex-row items-center self-end mt-1 gap-1 sm:gap-2">
+          <CardAction className={`flex flex-row items-center self-end mt-1 ${(deployURL && githubURL) ? 'gap-1 sm:gap-2' : ''}`}>
             <a href={deployURL} target="_blank">
               {deployURL && (
                 <Button variant="outline" className="cursor-pointer rounded-xl">
@@ -138,9 +138,11 @@ export default function ProjectCard({
               )}
             </a>
             <a href={githubURL} target="_blank">
-              <Button variant="outline" className="cursor-pointer rounded-xl">
-                <Github />
-              </Button>
+              {githubURL && (
+                <Button variant="outline" className="cursor-pointer rounded-xl">
+                  <Github />
+                </Button>
+              )}
             </a>
           </CardAction>
         </div>
