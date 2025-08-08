@@ -64,11 +64,9 @@ export default function ProjectCard({
         <div className="flex flex-row justify-between items-center" tabIndex={2}  >
           <CardTitle className="flex flex-col">
             <h2 className="text-2xl font-extrabold">
-              {window.innerWidth < 640 ? (
-                (!isExpanded || !isExpandedFromParent) && title.length > 15
-                  ? `${title.substring(0, 15)}...`
-                  : title
-              ) : title}
+              {window.innerWidth < 640 && (!isExpanded || !isExpandedFromParent) && title.length > 15
+                ? `${title.substring(0, 15)}...`
+                : title}
             </h2>
           </CardTitle>
           {isFinished ? (
