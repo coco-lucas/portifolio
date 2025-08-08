@@ -8,6 +8,10 @@ import tereVerdeTrilhas from "../../assets/projects/tere-verde/pc/trilhas.png";
 import tereVerdeFiltroBio from "../../assets/projects/tere-verde/pc/filtro-bio.png";
 import tereVerdeVLibrasHome from "../../assets/projects/tere-verde/pc/vlibras-home.png";
 
+import orangeHome from "../../assets/projects/orangeHUB/home.jpeg";
+import orangeServices from "../../assets/projects/orangeHUB/services.jpeg";
+import orangeSvps from "../../assets/projects/orangeHUB/svps.jpeg";
+
 import tereVerdeMobileHome from "../../assets/projects/tere-verde/mobile/home.png";
 import tereVerdeMobileEventos from "../../assets/projects/tere-verde/mobile/eventos.png";
 import tereVerdeMobileNavBar from "../../assets/projects/tere-verde/mobile/navbar.png";
@@ -39,7 +43,7 @@ export default function () {
           tereVerdeMobileEventos,
         ]}
         description={t("project.tere-verde.description")}
-        badge={["React", "JavaScript", "HTML", "CSS", "Next.js"]}
+        badge={["React", "JavaScript", "HTML", "CSS", "JSON-Server"]}
         githubURL="https://github.com/miguelMFR/tere-verde"
       />
 
@@ -48,19 +52,16 @@ export default function () {
           {!isExpanded && <div className="absolute bottom-0 left-0 right-0 h-54 bg-gradient-to-t from-background to-transparent z-10" />}
 
           <ProjectCard
-            title="The Orange HUB"
+            title="The Orange Experience HUB Portal"
             date="12/2024"
             isFinished={true}
             pcImg={[
-              tereVerdePcHome,
-
-            ]}
-            mobileImg={[
-              tereVerdeMobileHome,
-
+              orangeHome,
+              orangeSvps,
+              orangeServices,
             ]}
             description={t("project.orange-hub.description")}
-            badge={["Java", "SpringBoot", "React", "Typescript", "CSS"]}
+            badge={["Java", "SpringBoot", "React", "TypeScript", "CSS"]}
             deployURL="https://www.linkedin.com/posts/elyn-beatriz-v-959381150_ontem-conclu%C3%ADmos-a-%C3%BAltima-etapa-da-resid%C3%AAncia-activity-7275949641450311680-zb16/"
             githubURL="https://github.com/miguelMFR/tere-verde"
           />
