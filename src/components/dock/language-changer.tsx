@@ -21,11 +21,6 @@ export default function LanguageChanger() {
 
   const handleChange = (lang: string) => {
     if (lang === currentLocale) return;
-
-    const days = 30;
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `NEXT_LOCALE=${lang}; expires=${date.toUTCString()}; path=/`;
     i18n.changeLanguage(lang);
   };
   return (

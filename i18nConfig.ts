@@ -1,4 +1,5 @@
 import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import enLang from "./public/locales/en/home.json";
 import ptLang from "./public/locales/pt/home.json";
@@ -16,13 +17,21 @@ const resources = {
   },
 };
 
-i18n.use(initReactI18next).init({
-  returnObjects: true,
-  resources,
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    returnObjects: true,
+    resources,
+    supportedLngs: ["en", "pt", "es"],
+    detection: {
+      order: ["querystring", "cookie", "localStorage", "navigator"],
+      caches: ["localStorage", "cookie"],
+    },
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: true,
+    },
+  });
 
 export default i18n;
