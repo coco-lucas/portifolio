@@ -248,6 +248,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
             <p>{t("contact.form.submit.count", { count: getTotalSubmissionCount() })}</p>
           </div>
         )}
+        {/*TODO: Add captcha*/}
         <Button
           type="submit"
           disabled={isDisabled}

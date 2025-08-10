@@ -7,7 +7,7 @@ export default function Image({ src, alt, className, tabIndex, ...props }: { src
       <img
         src={src}
         alt={alt}
-        className={`rounded-lg transition-transform duration-300 ease-in-out hover:scale-101 ${className}`}
+        className={`rounded-lg transition-transform duration-300 ease-in-out hover:scale-101 max-h-80 ${className}`}
         tabIndex={tabIndex}
         {...props}
       />

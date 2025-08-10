@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 interface CardProps {
   icon: SVGAElement | any;
@@ -19,10 +20,17 @@ export default function StackCard({ icon, stackName, techIcons }: CardProps) {
       <CardContent className="w-full flex justify-baseline mb-2">
         <div className="flex flex-row justify-baseline gap-2 sm:gap-4 text-2xl sm:text-3xl">
           {techIcons.map((iconClass, idx) => (
-            <i key={idx} className={iconClass}></i>
+            <Tooltip key={idx}>
+              <TooltipTrigger>
+                <i key={idx} className={iconClass}></i>
+              </TooltipTrigger>
+              <TooltipContent>
+                {iconClass.match(/devicon-([^-]+)/)?.[1].split(' ')[0].replace(/\b\w/g, c => c.toUpperCase())}
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </CardContent>
-    </Card>
+    </Card >
   );
 }

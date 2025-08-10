@@ -40,7 +40,7 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
                   {type === "pc" ? (
                     <Image src={pcImg[index]} alt={alt} tabIndex={3} />
                   ) : (
-                    <Image src={mobileImg[index]} alt={alt} className="max-h-[580px] sm:max-h-96" tabIndex={3} />
+                    <Image src={mobileImg[index]} alt={alt} className="max-h-[560px] sm:max-h-96" tabIndex={3} />
                   )}
                 </div>
               </CarouselItem>

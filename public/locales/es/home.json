@@ -64,15 +64,20 @@
       }
     }
   },
-  "education": "Educación",
-  "education_certification": "Certificaciones",
-  "education_certification-1-title": "Residencia de Desarrollador Full Stack en TIC/Software",
-  "education_certification-2-title": "Entrenamiento para principiantes en programación",
-  "education_certification-3-title": "Certificado de Inglés (C1 Avanzado)",
-  "education_credential": "Ver credencial",
-  "education_graduation": "Graduación",
-  "education_university": "Educación Formal",
-  "education_university-1-title": "Tecnólogo en Análisis y Desarrollo de Sistemas",
+  "education": {
+    "certificate": {
+      "title": "Certificaciones",
+      "1": "Residencia en Desarrollo Full Stack en TIC/Software",
+      "2": "Formación Inicial en Programación",
+      "3": "Certificado de Inglés (C1 Avanzado)",
+      "credential": "Ver credencial"
+    },
+    "graduation": {
+      "title": "Formación Académica",
+      "year": "Graduación",
+      "1": "Licenciatura en Ciencias de la Computación"
+    }
+  },
   "project": {
     "title": "Proyectos",
     "stack": "Tecnologías utilizadas",
@@ -85,7 +90,10 @@
     "view-more": "Cargar más proyectos",
     "view-less": "Ver menos proyectos",
     "tere-verde": {
-      "description": "Terê Verde es un sitio web que desarrollamos desde cero para destacar las atracciones naturales y las oportunidades de ecoturismo en Teresópolis. A diferencia de la plataforma oficial de la ciudad — que sufre de mal diseño, navegación lenta y falta de accesibilidad — nuestra solución ofrece una interfaz limpia y responsiva, con filtros intuitivos y alto rendimiento, lo que facilita que cualquier visitante explore la biodiversidad de la región con solo unos clics."
+      "description": "Terê Verde es un sitio web desarrollado para destacar las atracciones naturales y las oportunidades de ecoturismo en Teresópolis - RJ. A diferencia de la plataforma oficial de la ciudad, que sufre de mal diseño, navegación lenta y falta de accesibilidad, nuestra solución ofrece una interfaz limpia y responsiva, con filtros intuitivos y alto rendimiento, lo que facilita que cualquier visitante explore la biodiversidad de la región con solo unos clics."
+    },
+    "orange-hub": {
+      "description": "Nuestro reto fue desarrollar un sitio web para mostrar el HUB de Experiencia de Orange en Petrópolis - RJ. La plataforma permite a los usuarios agendar visitas, explorar materiales sobre el HUB, conocer más sobre los productos de Orange e incluso generar un informe personalizado destacando los servicios que les llamaron la atención, ayudando así a Orange a hacer un seguimiento con información específica y relevante."
     },
     "mock": {
       "description": "Breve descripción del proyecto va aquí."

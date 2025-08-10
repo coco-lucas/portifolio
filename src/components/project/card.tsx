@@ -16,12 +16,12 @@ import { type CarouselProps } from "./carousel";
 import ProjectTabs from "./tabs";
 
 export interface ProjectProps {
+  isExpandedFromParent?: boolean;
   title: string;
   date?: string;
   isFinished: boolean;
   pcImg: CarouselProps["pcImg"];
-  mobileImg: CarouselProps["mobileImg"];
-  alt: CarouselProps["alt"];
+  mobileImg?: CarouselProps["mobileImg"];
   description: string;
   badge: string[];
   badgeClassname?: string;
@@ -30,12 +30,12 @@ export interface ProjectProps {
 }
 
 export default function ProjectCard({
+  isExpandedFromParent,
   title,
   date,
   isFinished,
   pcImg,
   mobileImg,
-  alt,
   description,
   badge,
   deployURL,
@@ -63,7 +63,11 @@ export default function ProjectCard({
           </div>}
         <div className="flex flex-row justify-between items-center" tabIndex={2}  >
           <CardTitle className="flex flex-col">
-            <h2 className="text-2xl font-extrabold">{title}</h2>
+            <h2 className="text-2xl font-extrabold">
+              {window.innerWidth < 640 && (!isExpanded || !isExpandedFromParent) && title.length > 15
+                ? `${title.substring(0, 15)}...`
+                : title}
+            </h2>
           </CardTitle>
           {isFinished ? (
             <Badge className="bg-(--chart-2) pointer-events-none">
@@ -77,7 +81,7 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={alt} />
+        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={`${title} Project Images`} />
 
         <h4>{t("project.stack")}:</h4>
         <div className="flex flex-wrap gap-2" tabIndex={6}>
@@ -109,23 +113,23 @@ export default function ProjectCard({
             <Button
               variant="link"
               onClick={() => setIsExpanded(!isExpanded)}
-              className="px-1 cursor-pointer h-auto text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
+              className="px-1 cursor-pointer h-0 text-primary underline sm:no-underline font-medium inline-flex items-center gap-0"
             >
               {isExpanded ? (
-                <div className="hidden sm:flex flex-row">
-                  {t("project.see-less")} <ChevronUp className="size-4! mt-0.5" />
+                <div className="hidden sm:flex flex-row text-ring">
+                  {t("project.see-less")} <ChevronUp className="size-4 mt-0.5" />
                 </div>
               ) : (
                 <>
-                  {t("project.see-more")} <ChevronDown className="size-4! mt-0.5" />
+                  {t("project.see-more")} <ChevronDown className="size-4 mt-0.5" />
                 </>
               )}
             </Button>
           )}
         </CardDescription>
 
-        <div className="flex f</>lex-row justify-end items-center">
-          <CardAction className="flex flex-col sm:flex-row items-center self-end gap-1 sm:gap-2">
+        <div className="flex flex-row justify-end items-center">
+          <CardAction className={`flex flex-row items-center self-end mt-1 ${(deployURL && githubURL) ? 'gap-1 sm:gap-2' : ''}`}>
             <a href={deployURL} target="_blank">
               {deployURL && (
                 <Button variant="outline" className="cursor-pointer rounded-xl">
@@ -134,9 +138,11 @@ export default function ProjectCard({
               )}
             </a>
             <a href={githubURL} target="_blank">
-              <Button variant="outline" className="cursor-pointer rounded-xl">
-                <Github />
-              </Button>
+              {githubURL && (
+                <Button variant="outline" className="cursor-pointer rounded-xl">
+                  <Github />
+                </Button>
+              )}
             </a>
           </CardAction>
         </div>
