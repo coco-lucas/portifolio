@@ -14,7 +14,7 @@ export default function Home() {
   const socialItems = [
     { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
     { icon: <Instagram className="size-4 sm:size-5" />, name: "Instagram", link: "https://www.instagram.com/lucas.coco_/" },
-    { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/lucauxs" },
+    { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/devlucasc" },
     { icon: <i className="devicon-behance-plain" />, name: "Behance", link: "https://behance.net/coco-lucas" }
   ];
 
@@ -28,7 +28,7 @@ export default function Home() {
                 <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter text-start -ml-1 sm:-ml-2" id="header">
                   Lucas Coco
                 </h1>
-                <h2 className="text-sm tracking-tighter font-bold text-(--muted-foreground)">
+                <h2 className="text-sm tracking-tighter font-normal text-muted-foreground">
                   Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
                   | React | Next.js
                 </h2>
@@ -40,7 +40,7 @@ export default function Home() {
               />
             </div>
           </nav>
-          <p className="mt-4 text-base max-w-prose font-normal text-start">{t("about-me")}</p>
+          <p className="mt-4 text-base max-w-prose font-semibold text-start text-muted-foreground">{t("about-me")}</p>
         </div>
 
       </header>
@@ -52,11 +52,11 @@ export default function Home() {
         <nav>
           <h3 id="projects">{t("project.title")}:</h3>
         </nav>
-        <section className="flex flex-col justify-center items-center gap-6 gap-5 motion-preset-blur-up motion-duration-1000">
+        <section className="flex flex-col justify-center items-center gap-5 motion-preset-blur-up motion-duration-1000">
           <div className="flex flex-row items-center justify-center sm:w-fit">
             <Github size={30} />
             <div className="flex flex-col justify-between h-full sm:ml-2 font-semibold text-center">
-              <p>GitHub:</p>
+              <p>GitHub</p>
               <a
                 href="https://github.com/coco-lucas"
                 target="_blank"

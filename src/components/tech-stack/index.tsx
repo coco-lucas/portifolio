@@ -24,10 +24,9 @@ export default function TechStack() {
         icon={<Server />}
         stackName={t("stack_back")}
         techIcons={[
-          "devicon-nodejs-plain colored",
-          "devicon-redis-plain colored",
           "devicon-java-plain colored",
-          "devicon-spring-original colored"
+          "devicon-spring-original colored",
+          "devicon-nodejs-plain colored"
         ]}
       />
       <StackCard
@@ -35,7 +34,7 @@ export default function TechStack() {
         stackName={t("stack_db")}
         techIcons={[
           "devicon-postgresql-plain colored",
-          "devicon-mongodb-plain colored",
+          "devicon-mongodb-plain-wordmark colored",
           "devicon-mariadb-original light:colored"
         ]}
       />
