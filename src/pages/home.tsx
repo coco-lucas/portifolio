@@ -6,7 +6,7 @@ import TechStack from "../components/tech-stack";
 import { Card, CardContent } from "../components/ui/card";
 import SocialCard from "../components/social";
 import { Github, Instagram } from "lucide-react";
-import LucasCoco from "../assets/lucas-coco-ai.png";
+import LucasCoco from "../assets/lucas-coco.jpeg";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -29,7 +29,7 @@ export default function Home() {
                   Lucas Coco
                 </h1>
                 <h2 className="text-sm tracking-tighter font-normal text-muted-foreground">
-                  Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
+                  🇧🇷 Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
                   | React | Next.js
                 </h2>
               </div>
