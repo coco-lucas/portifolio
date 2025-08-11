@@ -3,7 +3,7 @@
 ![Portfolio Banner](./src/assets/og-image.png)
 
 
-***Para uma versão do README em português, clique*** [aqui](https://github.com/coco-lucas/portifolio/edit/master/README.md#portugu%C3%AAs).
+***Para uma versão do README em português, clique*** [aqui](https://github.com/coco-lucas/portifolio?tab=readme-ov-file#português).
 
 ---
 
