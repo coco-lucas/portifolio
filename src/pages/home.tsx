@@ -10,6 +10,9 @@ import LucasCoco from "../assets/lucas-coco.jpeg";
 
 export default function Home() {
   const { t } = useTranslation();
+  const getAge = () => {
+    return new Date().getFullYear() - 2005;
+  }
 
   const socialItems = [
     { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
@@ -20,15 +23,15 @@ export default function Home() {
 
   return (
     <div className="max-w-[calc(100%-2rem)] sm:max-w-3xl mx-auto mt-15 sm:mt-30">
-      <header className="flex flex-col sm:flex-row justify-center motion-preset-blur-down motion-duration-1000">
+      <header className="flex flex-row justify-center motion-preset-blur-down motion-duration-1000">
         <div className="sm:mr-10 flex-1">
           <nav id="about-me" className="mt-0">
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-col items-start self-center justify-start sm:items-start sm:justify-start">
-                <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter text-start -ml-1 sm:-ml-2" id="header">
+            <div className="flex flex-col-reverse sm:flex-row justify-center items-center sm:justify-between">
+              <div className="flex flex-col self-center items-center sm:items-start justify-center sm:justify-start">
+                <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter text-center sm:text-start -ml-1 sm:-ml-2" id="header">
                   Lucas Coco
                 </h1>
-                <h2 className="text-sm tracking-tighter font-normal text-muted-foreground">
+                <h2 className="text-sm tracking-tighter text-center sm:text-start font-normal text-muted-foreground">
                   🇧🇷 Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
                   | React | Next.js
                 </h2>
@@ -40,7 +43,7 @@ export default function Home() {
               />
             </div>
           </nav>
-          <p className="mt-4 text-base max-w-prose font-semibold text-start text-muted-foreground">{t("about-me")}</p>
+          <p className="mt-4 text-base max-w-prose font-semibold text-start text-muted-foreground">{t("about-me", { age: getAge() })}</p>
         </div>
 
       </header>

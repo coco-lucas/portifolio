@@ -1,5 +1,5 @@
 {
-  "about-me": "Sou um desenvolvedor de software de 19 anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.",
+  "about-me": "Sou um desenvolvedor de software de {{age}} anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.",
   "contact": {
     "title": "Entre em contato",
     "subtext": "Tem uma ideia de projeto ou se interessa pelos meus serviços",
