@@ -6,7 +6,7 @@ export default function TechStack() {
   const { t } = useTranslation();
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center'>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
       <StackCard
         icon={<Code />}
         stackName={t("stack_front")}
@@ -18,6 +18,10 @@ export default function TechStack() {
           "devicon-react-original colored",
           "devicon-nextjs-plain dark:colored",
           "devicon-tailwindcss-original colored",
+          "devicon-vitejs-plain colored",
+          "devicon-zustand-plain colored",
+          "devicon-bun-plain",
+          "devicon-framermotion-original",
         ]}
       />
       <StackCard
@@ -26,7 +30,8 @@ export default function TechStack() {
         techIcons={[
           "devicon-java-plain colored",
           "devicon-spring-original colored",
-          "devicon-nodejs-plain colored"
+          "devicon-nodejs-plain colored",
+          "devicon-python-plain",
         ]}
       />
       <StackCard
@@ -35,7 +40,7 @@ export default function TechStack() {
         techIcons={[
           "devicon-postgresql-plain colored",
           "devicon-mongodb-plain-wordmark colored",
-          "devicon-mariadb-original light:colored"
+          "devicon-mariadb-original light:colored",
         ]}
       />
       <StackCard
@@ -44,6 +49,7 @@ export default function TechStack() {
         techIcons={[
           "devicon-git-plain colored",
           "devicon-github-original light:colored",
+          "devicon-bitbucket-original colored",
           "devicon-docker-plain colored",
           "devicon-rabbitmq-original colored",
         ]}

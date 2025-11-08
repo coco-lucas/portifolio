@@ -14,23 +14,28 @@ export default function StackCard({ icon, stackName, techIcons }: CardProps) {
         <div className="flex items-center justify-center bg-(--muted) min-h-12 min-w-12 w-fit rounded-full">
           {icon}
         </div>
-        <CardTitle className="font-bold text-lg tracking-tight">{stackName}</CardTitle>
+        <CardTitle className="font-bold text-lg tracking-tight">
+          {stackName}
+        </CardTitle>
         <hr className="border-1 border-(--border) w-full rounded-full" />
       </CardHeader>
       <CardContent className="w-full flex justify-baseline mb-2">
-        <div className="flex flex-row justify-baseline gap-2 sm:gap-4 text-2xl sm:text-3xl">
+        <div className="grid grid-cols-9 justify-baseline gap-2 sm:gap-4 text-2xl sm:text-3xl">
           {techIcons.map((iconClass, idx) => (
             <Tooltip key={idx}>
               <TooltipTrigger>
                 <i key={idx} className={iconClass}></i>
               </TooltipTrigger>
               <TooltipContent>
-                {iconClass.match(/devicon-([^-]+)/)?.[1].split(' ')[0].replace(/\b\w/g, c => c.toUpperCase())}
+                {iconClass
+                  .match(/devicon-([^-]+)/)?.[1]
+                  .split(" ")[0]
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
               </TooltipContent>
             </Tooltip>
           ))}
         </div>
       </CardContent>
-    </Card >
+    </Card>
   );
 }
