@@ -1,5 +1,5 @@
 {
-  "about-me": "I'm a 19 years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.",
+  "about-me": "I'm a {{age}} years old software developer, specialized in creating web applications with React and SpringBoot. Skilled in Java, Typescript/Javascript and SQL, with expertise in UI/UX, RESTful APIs and Docker.",
   "contact": {
     "title": "Contact me",
     "subtext": "Have a project idea or are interested in my services",

@@ -8,8 +8,8 @@ export default function ProjectTabs({ pcImg = [], mobileImg = [], alt }: Carouse
   return (
     <Tabs defaultValue="pc">
       <TabsList>
-        <TabsTrigger disabled={pcDisabled} value="pc">PC</TabsTrigger>
-        <TabsTrigger disabled={mobileDisabled} value="mobile">Mobile</TabsTrigger>
+        <TabsTrigger disabled={pcDisabled} value="pc" className="data-[state=active]:motion-preset-slide-left motion-duration-300">PC</TabsTrigger>
+        <TabsTrigger disabled={mobileDisabled} value="mobile" className="data-[state=active]:motion-preset-slide-right motion-duration-300">Mobile</TabsTrigger>
       </TabsList>
       <TabsContent value="pc">
         <ProjectCarousel pcImg={pcImg} alt={alt} type="pc" />
