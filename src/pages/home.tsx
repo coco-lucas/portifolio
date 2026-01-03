@@ -86,7 +86,7 @@ export default function Home() {
         <nav>
           <h3 id="projects">{t("project.title")}:</h3>
         </nav>
-        <section className="flex flex-col justify-center items-center gap-5 motion-preset-blur-up motion-duration-1000">
+        <section className="flex flex-col justify-center items-center gap-5 intersect-once intersect:motion-preset-blur-up intersect:motion-duration-500 intersect:motion-delay-200">
           <div className="flex flex-row items-center justify-center sm:w-fit">
             <Github size={30} />
             <div className="flex flex-col justify-between h-full sm:ml-2 font-semibold text-center">
@@ -109,7 +109,7 @@ export default function Home() {
 
         <nav
           id="contact"
-          className="flex flex-col items-center justify-center sm:mt-30 mb-10 intersect:motion-preset-blur-up intersect:motion-duration-1500"
+          className="flex flex-col items-center justify-center sm:mt-30 mb-10 intersect-once intersect:motion-delay-200 intersect:motion-preset-blur-up intersect:motion-duration-1500"
         >
           <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">
             {t("contact.subtext")}?
@@ -126,12 +126,12 @@ export default function Home() {
       </main>
       <footer className="text-sm text-muted-foreground border-t border-muted py-4 mb-15 sm:mb-5">
         <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-row gap-2 text-foreground intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-300">
+          <div className="flex flex-row gap-2 text-foreground intersect-once intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
             <p>Lucas Coco©</p>
             <p>•</p>
             <p>2025</p>
           </div>
-          <div className="flex flex-row justify-evenly gap-4 intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-300">
+          <div className="flex flex-row justify-evenly gap-4 intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-200">
             <a href="https://www.github.com/coco-lucas/">GitHub</a>
           </div>
         </div>
