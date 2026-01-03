@@ -1,4 +1,12 @@
-import { BadgeCheckIcon, Calendar, ChevronDown, ChevronUp, CircleEllipsis, Github, Link } from "lucide-react";
+import {
+  BadgeCheckIcon,
+  Calendar,
+  ChevronDown,
+  ChevronUp,
+  CircleEllipsis,
+  Github,
+  Link,
+} from "lucide-react";
 import { Badge } from "../ui/badge";
 import {
   Card,
@@ -52,19 +60,28 @@ export default function ProjectCard({
   };
 
   return (
-    <Card className="intersect:motion-preset-blur-up intersect:motion-duration-1000 w-full">
+    <Card className="intersect-once intersect:motion-preset-blur-up intersect:motion-duration-700 w-full">
       <CardHeader>
-        {date &&
+        {date && (
           <div className="flex items-center justify-start">
-            <p className="flex gap-0.5 text-xs font-normal text-ring items-center" tabIndex={1}>
+            <p
+              className="flex gap-0.5 text-xs font-normal text-ring items-center"
+              tabIndex={1}
+            >
               <Calendar size={14} />
               {date}
             </p>
-          </div>}
-        <div className="flex flex-row justify-between items-center" tabIndex={2}  >
+          </div>
+        )}
+        <div
+          className="flex flex-row justify-between items-center"
+          tabIndex={2}
+        >
           <CardTitle className="flex flex-col">
             <h2 className="text-2xl font-extrabold">
-              {window.innerWidth < 640 && (!isExpanded || !isExpandedFromParent) && title.length > 15
+              {window.innerWidth < 640 &&
+              (!isExpanded || !isExpandedFromParent) &&
+              title.length > 15
                 ? `${title.substring(0, 15)}...`
                 : title}
             </h2>
@@ -81,7 +98,11 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        <ProjectTabs pcImg={pcImg} mobileImg={mobileImg} alt={`${title} Project Images`} />
+        <ProjectTabs
+          pcImg={pcImg}
+          mobileImg={mobileImg}
+          alt={`${title} Project Images`}
+        />
 
         <h4>{t("project.stack")}:</h4>
         <div className="flex flex-wrap gap-2" tabIndex={6}>
@@ -97,18 +118,18 @@ export default function ProjectCard({
         </div>
       </CardHeader>
       <CardContent tabIndex={5}>
-        <CardDescription onClick={() => {
-          if (window.innerWidth < 640 && isExpanded) {
-            setIsExpanded(!isExpanded);
-          }
-        }}
+        <CardDescription
+          onClick={() => {
+            if (window.innerWidth < 640 && isExpanded) {
+              setIsExpanded(!isExpanded);
+            }
+          }}
           className="text-base"
           tabIndex={4}
         >
           {isTooLong && !isExpanded
             ? description.substring(0, maxCharacters) + "..."
-            : description
-          }
+            : description}
           {isTooLong && (
             <Button
               variant="link"
@@ -117,11 +138,13 @@ export default function ProjectCard({
             >
               {isExpanded ? (
                 <div className="hidden sm:flex flex-row text-ring">
-                  {t("project.see-less")} <ChevronUp className="size-4 mt-0.5" />
+                  {t("project.see-less")}{" "}
+                  <ChevronUp className="size-4 mt-0.5" />
                 </div>
               ) : (
                 <>
-                  {t("project.see-more")} <ChevronDown className="size-4 mt-0.5" />
+                  {t("project.see-more")}{" "}
+                  <ChevronDown className="size-4 mt-0.5" />
                 </>
               )}
             </Button>
@@ -129,7 +152,9 @@ export default function ProjectCard({
         </CardDescription>
 
         <div className="flex flex-row justify-end items-center">
-          <CardAction className={`flex flex-row items-center self-end mt-1 ${(deployURL && githubURL) ? 'gap-1 sm:gap-2' : ''}`}>
+          <CardAction
+            className={`flex flex-row items-center self-end mt-1 ${deployURL && githubURL ? "gap-1 sm:gap-2" : ""}`}
+          >
             <a href={deployURL} target="_blank">
               {deployURL && (
                 <Button variant="outline" className="cursor-pointer rounded-xl">
@@ -147,6 +172,6 @@ export default function ProjectCard({
           </CardAction>
         </div>
       </CardContent>
-    </Card >
+    </Card>
   );
 }

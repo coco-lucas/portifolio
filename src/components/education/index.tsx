@@ -8,12 +8,10 @@ export default function Education() {
   return (
     <div className="items-center">
       <div className="mt-15 flex flex-row items-center justify-start gap-1">
-        <h3 className="flex items-center">
-          {t("education.graduation.title")}
-        </h3>
+        <h3 className="flex items-center">{t("education.graduation.title")}</h3>
         <GraduationCap size={30} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect-once intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
         <EducationCard
           title={t("education.graduation.1")}
           corporation="UNIFESO - Centro Universitário Serra dos Órgãos"
@@ -26,9 +24,12 @@ export default function Education() {
       <div className="flex flex-row sm:gap-1 items-center justify-start sm:justify-end w-full">
         <h3>{t("education.certificate.title")}</h3>
         <Award size={30} />
-        <Separator orientation="horizontal" className="flex-1/2 hidden sm:block" />
+        <Separator
+          orientation="horizontal"
+          className="flex-1/2 hidden sm:block"
+        />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect:motion-preset-blur-left intersect:motion-duration-1000 intersect:motion-delay-300">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 intersect:motion-delay-300">
         <EducationCard
           title={t("education.certificate.1")}
           corporation="SERRATEC - Parque Tecnológico da Região Serrana"
@@ -57,5 +58,5 @@ export default function Education() {
         />
       </div>
     </div>
-  )
+  );
 }
