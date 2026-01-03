@@ -6,19 +6,46 @@ import TechStack from "../components/tech-stack";
 import { Card, CardContent } from "../components/ui/card";
 import SocialCard from "../components/social";
 import { Github, Instagram } from "lucide-react";
-import LucasCoco from "../assets/lucas-coco.jpeg";
 
 export default function Home() {
   const { t } = useTranslation();
+  const LucasCoco =
+    "https://amzn-s3-portfolio.s3.sa-east-1.amazonaws.com/selfie-photo.jpeg";
   const getAge = () => {
-    return new Date().getFullYear() - 2005;
-  }
+    let currentDate = new Date();
+    let birthDate = new Date("2005-09-26");
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+    let monthDiff = currentDate.getMonth() - birthDate.getMonth();
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && currentDate.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+    return age;
+  };
 
   const socialItems = [
-    { icon: <i className="devicon-linkedin-plain" />, name: "Linkedin", link: "https://www.linkedin.com/in/coco-lucas/" },
-    { icon: <Instagram className="size-4 sm:size-5" />, name: "Instagram", link: "https://www.instagram.com/lucas.coco_/" },
-    { icon: <i className="devicon-twitter-plain !dark:colored" />, name: "Twitter", link: "https://www.x.com/devlucasc" },
-    { icon: <i className="devicon-behance-plain" />, name: "Behance", link: "https://behance.net/coco-lucas" }
+    {
+      icon: <i className="devicon-linkedin-plain" />,
+      name: "Linkedin",
+      link: "https://www.linkedin.com/in/coco-lucas/",
+    },
+    {
+      icon: <Instagram className="size-4 sm:size-5" />,
+      name: "Instagram",
+      link: "https://www.instagram.com/lucas.coco_/",
+    },
+    {
+      icon: <i className="devicon-twitter-plain !dark:colored" />,
+      name: "Twitter",
+      link: "https://www.x.com/devlucasc",
+    },
+    {
+      icon: <i className="devicon-behance-plain" />,
+      name: "Behance",
+      link: "https://behance.net/coco-lucas",
+    },
   ];
 
   return (
@@ -28,24 +55,28 @@ export default function Home() {
           <nav id="about-me" className="mt-0">
             <div className="flex flex-col-reverse sm:flex-row justify-center items-center sm:justify-between">
               <div className="flex flex-col self-center items-center sm:items-start justify-center sm:justify-start">
-                <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter text-center sm:text-start -ml-1 sm:-ml-2" id="header">
+                <h1
+                  className="text-5xl sm:text-8xl font-bold tracking-tighter text-center sm:text-start -ml-1 sm:-ml-2"
+                  id="header"
+                >
                   Lucas Coco
                 </h1>
                 <h2 className="text-sm tracking-tighter text-center sm:text-start font-normal text-muted-foreground">
-                  🇧🇷 Full Stack Developer | Java | SpringBoot | JavaScript | TypeScript
-                  | React | Next.js
+                  🇧🇷 Full Stack Developer | Java | SpringBoot | JavaScript |
+                  TypeScript | React | Next.js
                 </h2>
               </div>
               <img
                 src={LucasCoco}
                 alt="Lucas Coco"
-                className="rounded-full w-24 h-24 md:w-36 md:h-36"
+                className="rounded-full w-24 h-24 md:w-36 md:h-36 object-cover"
               />
             </div>
           </nav>
-          <p className="mt-4 text-base max-w-prose font-semibold text-start text-muted-foreground">{t("about-me", { age: getAge() })}</p>
+          <p className="mt-4 text-base max-w-prose font-semibold text-start text-muted-foreground">
+            {t("about-me", { age: getAge() })}
+          </p>
         </div>
-
       </header>
       <main>
         <nav>
@@ -76,9 +107,16 @@ export default function Home() {
           <Education />
         </div>
 
-        <nav id="contact" className="flex flex-col items-center justify-center sm:mt-30 mb-10 intersect:motion-preset-blur-up intersect:motion-duration-1500">
-          <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">{t("contact.subtext")}?</h2>
-          <p className="mt-1 font-bold text-2xl sm:text-3xl">{t("contact.title")}!</p>
+        <nav
+          id="contact"
+          className="flex flex-col items-center justify-center sm:mt-30 mb-10 intersect:motion-preset-blur-up intersect:motion-duration-1500"
+        >
+          <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">
+            {t("contact.subtext")}?
+          </h2>
+          <p className="mt-1 font-bold text-2xl sm:text-3xl">
+            {t("contact.title")}!
+          </p>
           <Card className="sm:min-w-20 sm:w-150 mt-4">
             <CardContent className="flex flex-col items-center gap-2">
               <SocialCard items={socialItems} />
