@@ -36,16 +36,14 @@ export default function Home() {
       name: "Instagram",
       link: "https://www.instagram.com/lucas.coco_/",
     },
-    {
-      icon: <i className="devicon-twitter-plain !dark:colored" />,
-      name: "Twitter",
-      link: "https://www.x.com/devlucasc",
-    },
-    {
-      icon: <i className="devicon-behance-plain" />,
-      name: "Behance",
-      link: "https://behance.net/coco-lucas",
-    },
+    // {
+    //   icon: <i className="devicon-twitter-plain !dark:colored" />,
+    //   name: "Twitter",
+    // },
+    // {
+    //   icon: <i className="devicon-behance-plain" />,
+    //   name: "Behance",
+    // },
   ];
 
   return (
@@ -129,10 +127,12 @@ export default function Home() {
           <div className="flex flex-row gap-2 text-foreground intersect-once intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
             <p>Lucas Coco©</p>
             <p>•</p>
-            <p>2025</p>
+            <p>2026</p>
           </div>
           <div className="flex flex-row justify-evenly gap-4 intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-200">
-            <a href="https://www.github.com/coco-lucas/">GitHub</a>
+            <a href="https://www.github.com/coco-lucas/" target="_blank">
+              GitHub
+            </a>
           </div>
         </div>
       </footer>

@@ -3,18 +3,38 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import emailjs from "@emailjs/browser";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import { AlertCircle, CloudAlert, Loader2Icon, OctagonAlert } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import {
+  AlertCircle,
+  CloudAlert,
+  Loader2Icon,
+  OctagonAlert,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-//TODO: Rewatch the video about forms && make the code not verify every input change
-
-export default function ContactForm({ isSubmitted }: { isSubmitted: (value: boolean) => void }) {
+export default function ContactForm({
+  isSubmitted,
+}: {
+  isSubmitted: (value: boolean) => void;
+}) {
   const { t } = useTranslation();
 
   const submissionLimit = 2;
@@ -27,14 +47,32 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
   const [isLoading, setIsLoading] = useState(false);
 
   const selectOptions = [
-    { key: "project", value: "Project Collaboration", label: t("contact.form.subject-options.project") },
-    { key: "job", value: "Job Role", label: t("contact.form.subject-options.job") },
-    { key: "inquiry", value: "General Inquiry", label: t("contact.form.subject-options.inquiry") },
-    { key: "other", value: "Other", label: t("contact.form.subject-options.other") },
+    {
+      key: "project",
+      value: "Project Collaboration",
+      label: t("contact.form.subject-options.project"),
+    },
+    {
+      key: "job",
+      value: "Job Role",
+      label: t("contact.form.subject-options.job"),
+    },
+    {
+      key: "inquiry",
+      value: "General Inquiry",
+      label: t("contact.form.subject-options.inquiry"),
+    },
+    {
+      key: "other",
+      value: "Other",
+      label: t("contact.form.subject-options.other"),
+    },
   ];
 
   const getTotalSubmissionCount = () => {
-    const cookieMatch = document.cookie.match(/(?:^|;\s*)totalSubmissions=(\d+)/);
+    const cookieMatch = document.cookie.match(
+      /(?:^|;\s*)totalSubmissions=(\d+)/,
+    );
     return cookieMatch ? parseInt(cookieMatch[1], 10) : 0;
   };
 
@@ -44,7 +82,8 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
     document.cookie = `totalSubmissions=${newCount}; path=/; max-age=88000`;
   };
 
-  const isDisabled = (errorCount >= errorLimit || getTotalSubmissionCount() >= submissionLimit);
+  const isDisabled =
+    errorCount >= errorLimit || getTotalSubmissionCount() >= submissionLimit;
 
   const ContactSchema = z.object({
     name: z
@@ -56,12 +95,9 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
         message: t("contact.form.errors.input.name.min-length"),
       }),
     email: z
-      .string()
+      .email({ message: t("contact.form.errors.input.email.invalid") })
       .nonempty({
         message: t("contact.form.errors.input.email.required"),
-      })
-      .email({
-        message: t("contact.form.errors.input.email.invalid"),
       }),
     subject: z.string().nonempty({
       message: t("contact.form.errors.input.subject.required"),
@@ -86,7 +122,7 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
       otherSubject: "",
       message: "",
     },
-  })
+  });
 
   const onSubmit = (data: z.infer<typeof ContactSchema>) => {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -94,7 +130,9 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     //parse the other subject if it exists to the subject in jsmail
-    { data.otherSubject && (data.subject = data.otherSubject) };
+    {
+      data.otherSubject && (data.subject = data.otherSubject);
+    }
 
     const templateParams = {
       subject: data.subject,
@@ -102,10 +140,11 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
       from_email: data.email,
       message: data.message,
       to_name: "Lucas C.",
-    }
+    };
 
     setIsLoading(true);
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
       .then((res) => {
         res.status === 200 && console.log("Email sent successfully:", res);
         form.reset();
@@ -119,8 +158,8 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
         setErr(true);
         setErrorCount(errorCount + 1);
         setIsLoading(false);
-      })
-  }
+      });
+  };
 
   return (
     <Form {...form}>
@@ -134,7 +173,11 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
               <FormItem>
                 <FormLabel>{t("contact.form.name")}</FormLabel>
                 <FormControl>
-                  <Input placeholder={t("contact.form.name-placeholder")} {...field} disabled={isDisabled} />
+                  <Input
+                    placeholder={t("contact.form.name-placeholder")}
+                    {...field}
+                    disabled={isDisabled}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -148,7 +191,12 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder={t("contact.form.email-placeholder")} type="email" {...field} disabled={isDisabled} />
+                  <Input
+                    placeholder={t("contact.form.email-placeholder")}
+                    type="email"
+                    {...field}
+                    disabled={isDisabled}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -159,12 +207,24 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
             name="subject"
             disabled={isDisabled}
             render={({ field }) => (
-              <FormItem className={form.watch("subject") === "Other" ? "text-ring" : "text-foreground"}>
+              <FormItem
+                className={
+                  form.watch("subject") === "Other"
+                    ? "text-ring"
+                    : "text-foreground"
+                }
+              >
                 <FormLabel>{t("contact.form.subject")}</FormLabel>
                 <FormControl>
-                  <Select onValueChange={field.onChange} value={field.value} disabled={isDisabled}>
+                  <Select
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    disabled={isDisabled}
+                  >
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder={t("contact.form.subject-placeholder")} />
+                      <SelectValue
+                        placeholder={t("contact.form.subject-placeholder")}
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       {selectOptions.map((option) => (
@@ -188,7 +248,11 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
                 <FormItem>
                   <FormLabel>{t("contact.form.custom.label")}</FormLabel>
                   <FormControl>
-                    <Input placeholder={t("contact.form.custom.placeholder")} {...field} disabled={isDisabled} />
+                    <Input
+                      placeholder={t("contact.form.custom.placeholder")}
+                      {...field}
+                      disabled={isDisabled}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -203,13 +267,16 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
               <FormItem>
                 <FormLabel>{t("contact.form.message")}</FormLabel>
                 <FormControl>
-                  <Textarea placeholder={t("contact.form.message-placeholder")} {...field} disabled={isDisabled} />
+                  <Textarea
+                    placeholder={t("contact.form.message-placeholder")}
+                    {...field}
+                    disabled={isDisabled}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
         </div>
         {err && !isDisabled && (
           <div className="flex flex-row gap-1 text-destructive text-xs sm:text-sm text-center justify-center">
@@ -221,12 +288,16 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
           <div className="flex flex-col items-center text-destructive text-sm text-center justify-center">
             <div className="flex flex-row gap-1">
               <CloudAlert className="size-5" />
-              <p className="font-semibold">{t("contact.form.errors.server.title")}.</p>
+              <p className="font-semibold">
+                {t("contact.form.errors.server.title")}.
+              </p>
             </div>
             <p>{t("contact.form.errors.server.desc")}.</p>
             <div className="mt-4 text-xs">
               <p>{t("contact.form.errors.server.contact")}:</p>
-              <a href="mailto:dev.lucascoco@gmail.com" className="underline">{contactEmail}</a>
+              <a href="mailto:dev.lucascoco@gmail.com" className="underline">
+                {contactEmail}
+              </a>
             </div>
           </div>
         )}
@@ -234,20 +305,29 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
           <div className="flex flex-col items-center text-sm text-center justify-center">
             <div className="flex flex-row gap-1">
               <AlertCircle className="size-5" />
-              <p className="font-semibold">{t("contact.form.errors.limit.title")}.</p>
+              <p className="font-semibold">
+                {t("contact.form.errors.limit.title")}.
+              </p>
             </div>
             <p>{t("contact.form.errors.limit.desc")}.</p>
             <div className="mt-2 text-xs text-muted-foreground">
               <p>{t("contact.form.errors.limit.contact")}:</p>
-              <a href="mailto:dev.lucascoco@gmail.com" className="underline">{contactEmail}</a>
+              <a href="mailto:dev.lucascoco@gmail.com" className="underline">
+                {contactEmail}
+              </a>
             </div>
           </div>
         )}
-        {getTotalSubmissionCount() > 0 && getTotalSubmissionCount() < submissionLimit && (
-          <div className="text-xs text-muted-foreground text-center">
-            <p>{t("contact.form.submit.count", { count: getTotalSubmissionCount() })}</p>
-          </div>
-        )}
+        {getTotalSubmissionCount() > 0 &&
+          getTotalSubmissionCount() < submissionLimit && (
+            <div className="text-xs text-muted-foreground text-center">
+              <p>
+                {t("contact.form.submit.count", {
+                  count: getTotalSubmissionCount(),
+                })}
+              </p>
+            </div>
+          )}
         {/*TODO: Add captcha*/}
         <Button
           type="submit"
@@ -263,5 +343,5 @@ export default function ContactForm({ isSubmitted }: { isSubmitted: (value: bool
         </Button>
       </form>
     </Form>
-  )
+  );
 }

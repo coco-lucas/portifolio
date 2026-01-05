@@ -1,9 +1,9 @@
 {
-  "about-me": "Sou um desenvolvedor de software de {{age}} anos, especializado em criar aplicações web com React e SpringBoot. Com habilidades em Java, Typescript/Javascript e SQL, e experiência em UI/UX, APIs RESTful e Docker.",
+  "about-me": "Sou desenvolvedor de software de {{age}} anos, com >1 ano de experiência, especializado na criação de aplicações web responsivas utilizando Typescript e React. Com habilidades em Java, Typescript/Javascript, SQL e experiência em UI/UX, APIs RESTful e Cloud.",
   "contact": {
     "title": "Entre em contato",
-    "subtext": "Tem uma ideia de projeto ou se interessa pelos meus serviços",
-    "social": "Ou conecte-se comigo pelo",
+    "subtext": "Tem ulguma ideia de projeto ou se interessa por meus serviços",
+    "social": "Ou conecte-se comigo via",
     "button": "Me envie um e-mail",
     "form": {
       "title": "Escreva a sua mensagem",
@@ -36,7 +36,7 @@
         "input": {
           "name": {
             "required": "O nome é obrigatório",
-            "min-length": "O nome deve ter pelo menos 2 caracteres"
+            "min-length": "O nome deve ter ao menos 2 caracteres"
           },
           "email": {
             "required": "O e-mail é obrigatório",
@@ -47,7 +47,7 @@
           },
           "message": {
             "required": "A mensagem é obrigatória",
-            "min-length": "A mensagem deve ter pelo menos 10 caracteres"
+            "min-length": "A mensagem deve ter ao menos 10 caracteres"
           }
         },
         "send": "Erro ao enviar o e-mail. Por favor, tente novamente mais tarde",

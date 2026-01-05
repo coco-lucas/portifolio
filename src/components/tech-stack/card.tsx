@@ -27,10 +27,12 @@ export default function StackCard({ icon, stackName, techIcons }: CardProps) {
                 <i key={idx} className={iconClass}></i>
               </TooltipTrigger>
               <TooltipContent>
-                {iconClass
-                  .match(/devicon-([^-]+)/)?.[1]
-                  .split(" ")[0]
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
+                {iconClass.match(/amazonwebservices/)
+                  ? "AWS"
+                  : iconClass
+                      .match(/devicon-([^-]+)/)?.[1]
+                      .split(" ")[0]
+                      .replace(/\b\w/g, (c) => c.toUpperCase())}
               </TooltipContent>
             </Tooltip>
           ))}
