@@ -6,6 +6,7 @@ import TechStack from "../components/tech-stack";
 import { Card, CardContent } from "../components/ui/card";
 import SocialCard from "../components/social";
 import { Github, Instagram } from "lucide-react";
+import Experience from "../components/experience";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -102,6 +103,10 @@ export default function Home() {
           </div>
           <Projects />
         </section>
+
+        <div id="experience">
+          <Experience />
+        </div>
 
         <div id="education">
           <Education />
