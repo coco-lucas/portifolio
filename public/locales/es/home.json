@@ -30,7 +30,8 @@
         "button": "Enviar Mensaje",
         "loading": "Enviando...",
         "success": "Mensaje enviado con éxito",
-        "thanks": "¡Gracias por tu mensaje! Me pondré en contacto contigo lo antes posible"
+        "thanks": "¡Gracias por tu mensaje! Me pondré en contacto contigo lo antes posible",
+        "count": "Has enviado {{count}} e-mail(s) hasta el momento."
       },
       "errors": {
         "input": {

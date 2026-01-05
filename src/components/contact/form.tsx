@@ -320,7 +320,7 @@ export default function ContactForm({
         )}
         {getTotalSubmissionCount() > 0 &&
           getTotalSubmissionCount() < submissionLimit && (
-            <div className="text-xs text-muted-foreground text-center">
+            <div className="text-xs my-1.5 text-muted-foreground text-center">
               <p>
                 {t("contact.form.submit.count", {
                   count: getTotalSubmissionCount(),
