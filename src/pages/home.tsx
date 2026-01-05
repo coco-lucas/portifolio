@@ -36,16 +36,14 @@ export default function Home() {
       name: "Instagram",
       link: "https://www.instagram.com/lucas.coco_/",
     },
-    {
-      icon: <i className="devicon-twitter-plain !dark:colored" />,
-      name: "Twitter",
-      link: "https://www.x.com/devlucasc",
-    },
-    {
-      icon: <i className="devicon-behance-plain" />,
-      name: "Behance",
-      link: "https://behance.net/coco-lucas",
-    },
+    // {
+    //   icon: <i className="devicon-twitter-plain !dark:colored" />,
+    //   name: "Twitter",
+    // },
+    // {
+    //   icon: <i className="devicon-behance-plain" />,
+    //   name: "Behance",
+    // },
   ];
 
   return (
