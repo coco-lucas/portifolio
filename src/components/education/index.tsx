@@ -21,13 +21,9 @@ export default function Education() {
         />
       </div>
 
-      <div className="flex flex-row sm:gap-1 items-center justify-start sm:justify-end w-full">
+      <div className="flex flex-row sm:gap-1 items-center justify-start w-full">
         <h3>{t("education.certificate.title")}</h3>
         <Award size={30} />
-        <Separator
-          orientation="horizontal"
-          className="flex-1/2 hidden sm:block"
-        />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 intersect:motion-delay-300">
         <EducationCard
