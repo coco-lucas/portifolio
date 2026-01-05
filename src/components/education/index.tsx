@@ -1,6 +1,5 @@
 import { Award, GraduationCap } from "lucide-react";
 import EducationCard from "./card";
-import { Separator } from "../ui/separator";
 import { useTranslation } from "react-i18next";
 
 export default function Education() {

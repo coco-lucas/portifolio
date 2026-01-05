@@ -131,7 +131,7 @@ export default function Home() {
           </div>
           <div className="flex flex-row justify-evenly gap-4 intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-200">
             <a href="https://www.github.com/coco-lucas/" target="_blank">
-              My GitHub
+              GitHub
             </a>
           </div>
         </div>
