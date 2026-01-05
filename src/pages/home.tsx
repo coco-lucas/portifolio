@@ -127,10 +127,12 @@ export default function Home() {
           <div className="flex flex-row gap-2 text-foreground intersect-once intersect:motion-preset-blur-right intersect:motion-duration-1000 motion-delay-200">
             <p>Lucas Coco©</p>
             <p>•</p>
-            <p>2025</p>
+            <p>2026</p>
           </div>
           <div className="flex flex-row justify-evenly gap-4 intersect-once intersect:motion-preset-blur-left intersect:motion-duration-1000 motion-delay-200">
-            <a href="https://www.github.com/coco-lucas/">GitHub</a>
+            <a href="https://www.github.com/coco-lucas/" target="_blank">
+              My GitHub
+            </a>
           </div>
         </div>
       </footer>
