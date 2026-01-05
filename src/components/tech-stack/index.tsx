@@ -48,8 +48,8 @@ export default function TechStack() {
         stackName={t("stack_tools")}
         techIcons={[
           "devicon-git-plain colored",
-          "devicon-github-original light:colored",
-          "devicon-bitbucket-original colored",
+          "devicon-amazonwebservices-plain-wordmark colored",
+          "devicon-azure-plain colored",
           "devicon-docker-plain colored",
           "devicon-rabbitmq-original colored",
         ]}
