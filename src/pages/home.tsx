@@ -9,8 +9,7 @@ import { Github, Instagram } from "lucide-react";
 
 export default function Home() {
   const { t } = useTranslation();
-  const LucasCoco =
-    "https://amzn-s3-portfolio.s3.sa-east-1.amazonaws.com/selfie-photo.jpeg";
+  const generalUrl = import.meta.env.VITE_ASSETS_URL;
   const getAge = () => {
     let currentDate = new Date();
     let birthDate = new Date("2005-09-26");
@@ -65,7 +64,7 @@ export default function Home() {
                 </h2>
               </div>
               <img
-                src={LucasCoco}
+                src={generalUrl + "selfie-photo.jpeg"}
                 alt="Lucas Coco"
                 className="rounded-full w-24 h-24 md:w-36 md:h-36 object-cover"
               />
