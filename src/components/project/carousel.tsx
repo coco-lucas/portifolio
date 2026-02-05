@@ -35,7 +35,7 @@ export default function ProjectCarousel({
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
@@ -91,7 +91,7 @@ export default function ProjectCarousel({
                     key={idx}
                     type="button"
                     className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-colors ${
-                      current - 1 === idx ? "bg-primary/50" : "bg-muted"
+                      current === idx ? "bg-primary/50" : "bg-muted"
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                     onClick={() => api?.scrollTo(idx)}
