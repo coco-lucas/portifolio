@@ -56,9 +56,13 @@ export default function ProjectCarousel({
               <CarouselItem key={index}>
                 <motion.div
                   className="p-1 flex justify-center items-center text-center"
-                  initial={{ opacity: 0, x: type === "pc" ? 10 : -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.125 }}
+                  initial={{
+                    opacity: 0,
+                    x: type === "pc" ? 10 : -10,
+                    filter: "blur(6px)",
+                  }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.3 }}
                 >
                   {type === "pc" ? (
                     <Image src={pcImg[index]} alt={alt} tabIndex={3} />
@@ -83,7 +87,7 @@ export default function ProjectCarousel({
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
+                transition={{ duration: 0.15, delay: 0.3 }}
                 className="flex gap-1"
               >
                 {Array.from({ length: count }).map((_, idx) => (
