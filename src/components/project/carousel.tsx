@@ -54,24 +54,23 @@ export default function ProjectCarousel({
               length: type === "pc" ? pcImg.length : mobileImg.length,
             }).map((_, index) => (
               <CarouselItem key={index}>
-                <div className="p-1 flex justify-center items-center text-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: type === "pc" ? 10 : -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: 0.125 }}
-                  >
-                    {type === "pc" ? (
-                      <Image src={pcImg[index]} alt={alt} tabIndex={3} />
-                    ) : (
-                      <Image
-                        src={mobileImg[index]}
-                        alt={alt}
-                        className="max-h-[560px] sm:max-h-96"
-                        tabIndex={3}
-                      />
-                    )}
-                  </motion.div>
-                </div>
+                <motion.div
+                  className="p-1 flex justify-center items-center text-center"
+                  initial={{ opacity: 0, x: type === "pc" ? 10 : -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 0.125 }}
+                >
+                  {type === "pc" ? (
+                    <Image src={pcImg[index]} alt={alt} tabIndex={3} />
+                  ) : (
+                    <Image
+                      src={mobileImg[index]}
+                      alt={alt}
+                      className="max-h-[560px] sm:max-h-96"
+                      tabIndex={3}
+                    />
+                  )}
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
