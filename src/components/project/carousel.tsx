@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "../ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "../ui/carousel";
 import "react-medium-image-zoom/dist/styles.css";
 import Image from "../ui/image";
+import { motion } from "framer-motion";
 
 export interface CarouselProps {
   pcImg?: string | string[];
@@ -10,11 +18,15 @@ export interface CarouselProps {
   type?: "pc" | "mobile";
 }
 
-export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type }: CarouselProps) {
+export default function ProjectCarousel({
+  pcImg = [],
+  mobileImg = [],
+  alt,
+  type,
+}: CarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(1);
-
 
   useEffect(() => {
     if (!api) return;
@@ -23,26 +35,46 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
   return (
     <>
       {pcImg.length === 1 || mobileImg.length === 1 ? (
-        <Image src={type === "pc" ? pcImg[0] : mobileImg[0]} alt={alt} tabIndex={1} />
+        <Image
+          src={type === "pc" ? pcImg[0] : mobileImg[0]}
+          alt={alt}
+          tabIndex={1}
+        />
       ) : (
         <Carousel setApi={setApi}>
           <CarouselContent>
-            {Array.from({ length: type === "pc" ? pcImg.length : mobileImg.length }).map((_, index) => (
+            {Array.from({
+              length: type === "pc" ? pcImg.length : mobileImg.length,
+            }).map((_, index) => (
               <CarouselItem key={index}>
-                <div className="p-1 flex justify-center items-center text-center">
+                <motion.div
+                  className="p-1 flex justify-center items-center text-center"
+                  initial={{
+                    opacity: 0,
+                    x: type === "pc" ? 10 : -10,
+                    filter: "blur(6px)",
+                  }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   {type === "pc" ? (
                     <Image src={pcImg[index]} alt={alt} tabIndex={3} />
                   ) : (
-                    <Image src={mobileImg[index]} alt={alt} className="max-h-[560px] sm:max-h-96" tabIndex={3} />
+                    <Image
+                      src={mobileImg[index]}
+                      alt={alt}
+                      className="max-h-[560px] sm:max-h-96"
+                      tabIndex={3}
+                    />
                   )}
-                </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -50,23 +82,31 @@ export default function ProjectCarousel({ pcImg = [], mobileImg = [], alt, type 
             <div className="flex items-center gap-2 justify-start">
               <CarouselPrevious className="hidden sm:block" />
               <CarouselNext className="hidden sm:block" />
-
             </div>
             <div className="flex gap-1 sm:self-start -mt-1.5">
-              {Array.from({ length: count }).map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-colors ${current - 1 === idx ? "bg-primary/50" : "bg-muted"
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.15, delay: 0.3 }}
+                className="flex gap-1"
+              >
+                {Array.from({ length: count }).map((_, idx) => (
+                  <motion.button
+                    key={idx}
+                    type="button"
+                    className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-colors ${
+                      current === idx ? "bg-primary/50" : "bg-muted"
                     }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  onClick={() => api?.scrollTo(idx)}
-                />
-              ))}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => api?.scrollTo(idx)}
+                    whileTap={{ scale: 0.9 }}
+                  />
+                ))}
+              </motion.div>
             </div>
           </div>
         </Carousel>
       )}
     </>
-  )
+  );
 }

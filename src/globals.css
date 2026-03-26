@@ -6,7 +6,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -80,7 +79,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   --bg-dot-color: 0, 0, 0;
   --bg-dot-opacity: 0.07;
-  
+  --tabs-active-tab: var(--background);
+
   ::selection {
     background: oklch(0.145 0 0);
     color: oklch(0.985 0 0);
@@ -119,8 +119,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --bg-dot-color: 255,255,255;
+  --bg-dot-color: 255, 255, 255;
   --bg-dot-opacity: 0.06;
+  --tabs-active-bg: hsl(var(--input) / 30%);
 
   ::selection {
     background: oklch(0.985 0 0);
@@ -140,20 +141,24 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-image: radial-gradient(circle, rgba(var(--bg-dot-color),var(--bg-dot-opacity)) 1px, transparent 2px);
+    background-image: radial-gradient(
+      circle,
+      rgba(var(--bg-dot-color), var(--bg-dot-opacity)) 1px,
+      transparent 2px
+    );
     background-size: 15px 15px;
     mask-image: radial-gradient(ellipse 40% 50%, #000 80%, transparent 100%);
   }
-  h3{
+  h3 {
     @apply text-2xl sm:text-3xl font-semibold text-start my-5 tracking-tight;
   }
-  h4{
+  h4 {
     @apply font-semibold tracking-tight;
   }
-  nav{
+  nav {
     @apply mt-15;
   }
-  img{
+  img {
     @apply text-red-400;
   }
 }
@@ -161,6 +166,6 @@
 .custom-zoom [data-rmiz-modal-overlay="visible"] {
   @apply bg-black/50 backdrop-blur-xs;
 }
-.custom-zoom [data-rmiz-btn-unzoom]{
+.custom-zoom [data-rmiz-btn-unzoom] {
   @apply hidden;
 }
